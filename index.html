@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DealBazar - Best Deals & Offers</title>
+
+<meta name="description"
+content="Find the latest deals, discounts and offers from popular online stores.">
+
+<style>
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,Helvetica,sans-serif;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:#f5f6f8;
+  color:#1f2937;
+}
+
+/* HEADER */
+
+header{
+  background:#111827;
+  color:white;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:0 2px 12px rgba(0,0,0,.2);
+}
+
+.nav{
+  max-width:1200px;
+  margin:auto;
+  padding:15px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.logo{
+  font-size:26px;
+  font-weight:800;
+  white-space:nowrap;
+}
+
+.logo span{
+  color:#f59e0b;
+}
+
+.search{
+  flex:1;
+  max-width:550px;
+  position:relative;
+}
+
+.search input{
+  width:100%;
+  border:0;
+  outline:0;
+  padding:13px 45px 13px 15px;
+  border-radius:8px;
+  font-size:15px;
+}
+
+.search-icon{
+  position:absolute;
+  right:15px;
+  top:11px;
+}
+
+/* HERO */
+
+.hero{
+  background:linear-gradient(135deg,#111827,#374151);
+  color:white;
+  text-align:center;
+  padding:70px 20px;
+}
+
+.hero h1{
+  font-size:44px;
+  margin-bottom:15px;
+}
+
+.hero h1 span{
+  color:#fbbf24;
+}
+
+.hero p{
+  color:#d1d5db;
+  font-size:17px;
+  margin-bottom:28px;
+}
+
+.hero-button{
+  display:inline-block;
+  background:#f59e0b;
+  color:#111827;
+  text-decoration:none;
+  padding:13px 25px;
+  border-radius:8px;
+  font-weight:bold;
+}
+
+/* CONTAINER */
+
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:40px 20px;
+}
+
+.section-title{
+  font-size:26px;
+  margin-bottom:20px;
+}
+
+/* CATEGORIES */
+
+.categories{
+  display:flex;
+  gap:10px;
+  overflow-x:auto;
+  padding-bottom:10px;
+}
+
+.category{
+  border:0;
+  background:white;
+  padding:11px 18px;
+  border-radius:25px;
+  cursor:pointer;
+  white-space:nowrap;
+  box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+.category:hover,
+.category.active{
+  background:#111827;
+  color:white;
+}
+
+/* PRODUCTS */
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.product{
+  background:white;
+  border-radius:13px;
+  overflow:hidden;
+  position:relative;
+  box-shadow:0 3px 12px rgba(0,0,0,.08);
+  transition:.25s;
+}
+
+.product:hover{
+  transform:translateY(-5px);
+  box-shadow:0 10px 25px rgba(0,0,0,.14);
+}
+
+.discount{
+  position:absolute;
+  top:12px;
+  left:12px;
+  background:#dc2626;
+  color:white;
+  padding:5px 8px;
+  border-radius:5px;
+  font-size:12px;
+  font-weight:bold;
+  z-index:2;
+}
+
+.product-img{
+  width:100%;
+  height:220px;
+  object-fit:contain;
+  padding:15px;
+}
+
+.product-info{
+  padding:16px;
+}
+
+.store{
+  color:#6b7280;
+  font-size:12px;
+  font-weight:bold;
+  margin-bottom:8px;
+}
+
+.product-name{
+  font-size:16px;
+  font-weight:600;
+  line-height:1.4;
+  min-height:45px;
+  margin-bottom:10px;
+}
+
+.price{
+  font-size:21px;
+  font-weight:800;
+}
+
+.old-price{
+  color:#9ca3af;
+  text-decoration:line-through;
+  font-size:14px;
+  margin-left:5px;
+}
+
+.deal{
+  display:block;
+  text-align:center;
+  background:#f59e0b;
+  color:#111827;
+  text-decoration:none;
+  padding:11px;
+  border-radius:7px;
+  margin-top:14px;
+  font-weight:bold;
+}
+
+.deal:hover{
+  background:#d97706;
+  color:white;
+}
+
+/* EMPTY */
+
+.empty{
+  display:none;
+  text-align:center;
+  padding:50px;
+  color:#6b7280;
+}
+
+/* FOOTER */
+
+footer{
+  background:#111827;
+  color:#d1d5db;
+  text-align:center;
+  padding:45px 20px;
+  margin-top:50px;
+}
+
+footer h2{
+  color:white;
+  margin-bottom:10px;
+}
+
+footer p{
+  margin:8px 0;
+  font-size:14px;
+}
+
+.footer-small{
+  color:#9ca3af;
+  font-size:12px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+  .products{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+}
+
+@media(max-width:700px){
+
+  .nav{
+    flex-wrap:wrap;
+  }
+
+  .search{
+    flex-basis:100%;
+    max-width:none;
+    order:3;
+  }
+
+  .hero{
+    padding:50px 15px;
+  }
+
+  .hero h1{
+    font-size:32px;
+  }
+
+  .products{
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+  }
+
+  .product-img{
+    height:175px;
+  }
+
+  .product-info{
+    padding:11px;
+  }
+
+  .product-name{
+    font-size:14px;
+  }
+
+  .price{
+    font-size:18px;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+  <div class="nav">
+
+    <div class="logo">
+      Deal<span>Bazar</span>
+    </div>
+
+    <div class="search">
+
+      <input
+        id="search"
+        type="text"
+        placeholder="Search deals..."
+      >
+
+      <span class="search-icon">🔍</span>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <h1>
+    🔥 Best <span>Deals</span> in One Place
+  </h1>
+
+  <p>
+    Find amazing offers and discounts from popular online stores.
+  </p>
+
+  <a
+    href="#deals"
+    class="hero-button"
+  >
+    Explore Deals
+  </a>
+
+</section>
+
+
+
+<!-- MAIN -->
+
+<main class="container">
+
+
+  <!-- CATEGORIES -->
+
+  <h2 class="section-title">
+    Categories
+  </h2>
+
+  <div class="categories">
+
+    <button
+      class="category active"
+      data-category="All"
+    >
+      All
+    </button>
+
+    <button
+      class="category"
+      data-category="Mobiles"
+    >
+      📱 Mobiles
+    </button>
+
+    <button
+      class="category"
+      data-category="Electronics"
+    >
+      💻 Electronics
+    </button>
+
+    <button
+      class="category"
+      data-category="Fashion"
+    >
+      👕 Fashion
+    </button>
+
+    <button
+      class="category"
+      data-category="Home"
+    >
+      🏠 Home
+    </button>
+
+    <button
+      class="category"
+      data-category="Beauty"
+    >
+      💄 Beauty
+    </button>
+
+  </div>
+
+
+
+  <!-- DEALS -->
+
+  <section id="deals" style="margin-top:40px;">
+
+    <h2 class="section-title">
+      🔥 Today's Deals
+    </h2>
+
+    <div
+      id="products"
+      class="products"
+    ></div>
+
+    <div
+      id="empty"
+      class="empty"
+    >
+
+      <h3>
+        😕 No products found
+      </h3>
+
+      <p>
+        Try another search.
+      </p>
+
+    </div>
+
+  </section>
+
+
+</main>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+  <h2>
+    DealBazar
+  </h2>
+
+  <p>
+    Find the latest deals and discounts from online stores.
+  </p>
+
+  <p class="footer-small">
+    Prices and availability may change on the retailer's website.
+  </p>
+
+  <p class="footer-small">
+    © 2026 DealBazar
+  </p>
+
+</footer>
+
+
+
+<script>
+
+
+/*
+================================================
+DEMO PRODUCTS
+================================================
+
+IMPORTANT:
+
+Ye abhi DEMO products hain.
+
+Baad mein inko Amazon/Flipkart
+affiliate/API data se replace karenge.
+================================================
+*/
+
+
+const products = [
+
+
+  {
+    name:"Samsung Galaxy Smartphone",
+    category:"Mobiles",
+    store:"Amazon",
+    price:12999,
+    oldPrice:16999,
+    discount:24,
+    image:"https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=700",
+    url:"https://www.amazon.in/"
+  },
+
+
+  {
+    name:"Wireless Bluetooth Headphones",
+    category:"Electronics",
+    store:"Flipkart",
+    price:899,
+    oldPrice:1799,
+    discount:50,
+    image:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=700",
+    url:"https://www.flipkart.com/"
+  },
+
+
+  {
+    name:"Smart Watch",
+    category:"Electronics",
+    store:"Amazon",
+    price:1499,
+    oldPrice:2999,
+    discount:50,
+    image:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=700",
+    url:"https://www.amazon.in/"
+  },
+
+
+  {
+    name:"Men's Casual Sneakers",
+    category:"Fashion",
+    store:"Flipkart",
+    price:999,
+    oldPrice:1999,
+    discount:50,
+    image:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=700",
+    url:"https://www.flipkart.com/"
+  },
+
+
+  {
+    name:"Modern Home Lamp",
+    category:"Home",
+    store:"Amazon",
+    price:699,
+    oldPrice:1299,
+    discount:46,
+    image:"https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=700",
+    url:"https://www.amazon.in/"
+  },
+
+
+  {
+    name:"Premium Beauty Product",
+    category:"Beauty",
+    store:"Amazon",
+    price:599,
+    oldPrice:999,
+    discount:40,
+    image:"https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=700",
+    url:"https://www.amazon.in/"
+  },
+
+
+  {
+    name:"Laptop for Students",
+    category:"Electronics",
+    store:"Flipkart",
+    price:32999,
+    oldPrice:42999,
+    discount:23,
+    image:"https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=700",
+    url:"https://www.flipkart.com/"
+  },
+
+
+  {
+    name:"Stylish Backpack",
+    category:"Fashion",
+    store:"Amazon",
+    price:799,
+    oldPrice:1499,
+    discount:47,
+    image:"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=700",
+    url:"https://www.amazon.in/"
+  },
+
+
+  {
+    name:"Wireless Keyboard",
+    category:"Electronics",
+    store:"Amazon",
+    price:799,
+    oldPrice:1299,
+    discount:38,
+    image:"https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=700",
+    url:"https://www.amazon.in/"
+  },
+
+
+  {
+    name:"Running Shoes",
+    category:"Fashion",
+    store:"Flipkart",
+    price:1199,
+    oldPrice:2499,
+    discount:52,
+    image:"https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=700",
+    url:"https://www.flipkart.com/"
+  }
+
+];
+
+
+
+const productContainer =
+document.getElementById("products");
+
+const searchInput =
+document.getElementById("search");
+
+const empty =
+document.getElementById("empty");
+
+
+let selectedCategory="All";
+
+
+
+/*
+===========================================
+DISPLAY PRODUCTS
+===========================================
+*/
+
+
+function displayProducts(){
+
+
+  const search =
+  searchInput.value
+  .toLowerCase()
+  .trim();
+
+
+  const filtered =
+  products.filter(product=>{
+
+
+    const categoryMatch =
+    selectedCategory==="All" ||
+    product.category===selectedCategory;
+
+
+    const searchMatch =
+    product.name
+    .toLowerCase()
+    .includes(search);
+
+
+    return categoryMatch && searchMatch;
+
+  });
+
+
+
+  productContainer.innerHTML="";
+
+
+
+  if(filtered.length===0){
+
+    empty.style.display="block";
+
+    return;
+
+  }
+
+
+  empty.style.display="none";
+
+
+
+  filtered.forEach(product=>{
+
+
+    const card =
+    document.createElement("div");
+
+
+    card.className="product";
+
+
+
+    card.innerHTML=`
+
+
+      <div class="discount">
+        ${product.discount}% OFF
+      </div>
+
+
+      <img
+        class="product-img"
+        src="${product.image}"
+        alt="${product.name}"
+        loading="lazy"
+      >
+
+
+      <div class="product-info">
+
+
+        <div class="store">
+          ${product.store}
+        </div>
+
+
+        <div class="product-name">
+          ${product.name}
+        </div>
+
+
+        <div>
+
+          <span class="price">
+            ₹${product.price.toLocaleString("en-IN")}
+          </span>
+
+          <span class="old-price">
+            ₹${product.oldPrice.toLocaleString("en-IN")}
+          </span>
+
+        </div>
+
+
+        <a
+          class="deal"
+          href="${product.url}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View Deal →
+        </a>
+
+
+      </div>
+
+    `;
+
+
+    productContainer.appendChild(card);
+
+  });
+
+}
+
+
+
+/*
+===========================================
+SEARCH
+===========================================
+*/
+
+
+searchInput.addEventListener(
+  "input",
+  displayProducts
+);
+
+
+
+/*
+===========================================
+CATEGORY FILTER
+===========================================
+*/
+
+
+document
+.querySelectorAll(".category")
+.forEach(button=>{
+
+
+  button.addEventListener("click",()=>{
+
+
+    document
+    .querySelectorAll(".category")
+    .forEach(btn=>{
+      btn.classList.remove("active");
+    });
+
+
+    button.classList.add("active");
+
+
+    selectedCategory =
+    button.dataset.category;
+
+
+    displayProducts();
+
+  });
+
+});
+
+
+
+/*
+===========================================
+START WEBSITE
+===========================================
+*/
+
+
+displayProducts();
+
+
+</script>
+
+
+</body>
+</html>
