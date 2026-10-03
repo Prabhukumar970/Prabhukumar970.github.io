@@ -1,13 +1,73 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>YouTube Multi Preview</title>
+<!-- =========================
+     SEO
+========================= -->
+
+<title>YouTube Video Preview Tool – Multi YouTube Player | YTPreview</title>
 
 <meta name="description"
-content="Preview a YouTube video in multiple embedded player windows on one page.">
+content="Free YouTube Video Preview Tool to preview and test YouTube videos in multiple embedded players. Create multiple YouTube preview screens with YTPreview.">
+
+<meta name="robots" content="index, follow">
+
+<meta name="author" content="YTPreview">
+
+<link rel="canonical" href="https://prabhukumar970.github.io/">
+
+
+<!-- =========================
+     OPEN GRAPH
+========================= -->
+
+<meta property="og:type" content="website">
+
+<meta property="og:title"
+content="YouTube Video Preview Tool – YTPreview">
+
+<meta property="og:description"
+content="Preview and test YouTube videos using multiple embedded player screens with YTPreview.">
+
+<meta property="og:url"
+content="https://prabhukumar970.github.io/">
+
+
+<!-- =========================
+     TWITTER
+========================= -->
+
+<meta name="twitter:card" content="summary">
+
+<meta name="twitter:title"
+content="YouTube Video Preview Tool – YTPreview">
+
+<meta name="twitter:description"
+content="Free YouTube multi-player preview and embed testing tool.">
+
+
+<!-- =========================
+     STRUCTURED DATA
+========================= -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "YTPreview",
+  "url": "https://prabhukumar970.github.io/",
+  "description": "Free YouTube video preview and embed testing tool for creating multiple YouTube player previews.",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "Any"
+}
+</script>
+
 
 <style>
 
@@ -24,7 +84,10 @@ body{
     min-height:100vh;
 }
 
-/* HEADER */
+
+/* =========================
+   HEADER
+========================= */
 
 header{
     background:#0d0e13;
@@ -55,7 +118,9 @@ header{
 }
 
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
 
 .hero{
     text-align:center;
@@ -73,13 +138,15 @@ header{
 
 .hero p{
     color:#9296a1;
-    max-width:700px;
+    max-width:760px;
     margin:auto;
-    line-height:1.6;
+    line-height:1.7;
 }
 
 
-/* AD AREA */
+/* =========================
+   AD
+========================= */
 
 .ad-container{
     display:flex;
@@ -92,7 +159,9 @@ header{
 }
 
 
-/* MAIN CONTAINER */
+/* =========================
+   MAIN
+========================= */
 
 .container{
     max-width:1300px;
@@ -101,7 +170,9 @@ header{
 }
 
 
-/* PANEL */
+/* =========================
+   PANEL
+========================= */
 
 .panel{
     background:#111319;
@@ -141,7 +212,9 @@ input:focus{
 }
 
 
-/* BUTTON */
+/* =========================
+   BUTTON
+========================= */
 
 button{
     height:50px;
@@ -168,7 +241,9 @@ button:hover{
 }
 
 
-/* CONTROLS */
+/* =========================
+   CONTROLS
+========================= */
 
 .controls{
     display:flex;
@@ -182,7 +257,9 @@ button:hover{
 }
 
 
-/* INFO */
+/* =========================
+   INFO
+========================= */
 
 .info{
     margin-top:18px;
@@ -196,7 +273,9 @@ button:hover{
 }
 
 
-/* PREVIEW HEADER */
+/* =========================
+   PREVIEW HEADER
+========================= */
 
 .preview-header{
     display:flex;
@@ -215,7 +294,9 @@ button:hover{
 }
 
 
-/* FIXED 4 COLUMNS */
+/* =========================
+   PREVIEW GRID
+========================= */
 
 .preview-grid{
     display:grid;
@@ -225,7 +306,9 @@ button:hover{
 }
 
 
-/* CARD */
+/* =========================
+   CARD
+========================= */
 
 .card{
     background:#111319;
@@ -289,7 +372,9 @@ button:hover{
 }
 
 
-/* EMPTY */
+/* =========================
+   EMPTY
+========================= */
 
 .empty{
     grid-column:1/-1;
@@ -306,7 +391,70 @@ button:hover{
 }
 
 
-/* FOOTER */
+/* =========================
+   SEO CONTENT
+========================= */
+
+.seo-content{
+    margin:20px 0 50px;
+    padding:28px;
+    background:#111319;
+    border:1px solid #292c35;
+    border-radius:15px;
+}
+
+.seo-content h2{
+    font-size:23px;
+    margin-bottom:12px;
+    color:#fff;
+}
+
+.seo-content h2:not(:first-child){
+    margin-top:28px;
+}
+
+.seo-content p{
+    color:#999eaa;
+    line-height:1.8;
+    font-size:14px;
+}
+
+.seo-content ol{
+    margin:12px 0 0 22px;
+    color:#999eaa;
+    line-height:2;
+    font-size:14px;
+}
+
+
+/* =========================
+   FAQ
+========================= */
+
+.faq{
+    margin-top:30px;
+}
+
+.faq-item{
+    padding:18px 0;
+    border-bottom:1px solid #292c35;
+}
+
+.faq-item h3{
+    font-size:16px;
+    margin-bottom:8px;
+}
+
+.faq-item p{
+    color:#999eaa;
+    line-height:1.7;
+    font-size:14px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
 
 footer{
     border-top:1px solid #292c35;
@@ -317,7 +465,9 @@ footer{
 }
 
 
-/* TABLET */
+/* =========================
+   TABLET
+========================= */
 
 @media(max-width:1000px){
 
@@ -340,7 +490,9 @@ footer{
 }
 
 
-/* MOBILE */
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:600px){
 
@@ -380,6 +532,10 @@ footer{
         display:none;
     }
 
+    .seo-content{
+        padding:20px;
+    }
+
 }
 
 </style>
@@ -390,7 +546,9 @@ footer{
 <body>
 
 
-<!-- HEADER -->
+<!-- =========================
+     HEADER
+========================= -->
 
 <header>
 
@@ -401,7 +559,7 @@ footer{
         </div>
 
         <div class="status">
-            Multi Video Preview Tool
+            YouTube Video Preview & Embed Testing Tool
         </div>
 
     </div>
@@ -410,17 +568,20 @@ footer{
 
 
 
-<!-- HERO -->
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero">
 
     <h1>
-        YouTube <span>Multi Preview</span>
+        YouTube <span>Video Preview Tool</span>
     </h1>
 
     <p>
-        Create multiple embedded YouTube preview panels
-        for testing and presentation.
+        Preview and test YouTube videos in multiple embedded
+        player screens. Create multiple YouTube previews quickly
+        for testing, presentation and embed checking.
     </p>
 
 </section>
@@ -449,7 +610,9 @@ atOptions = {
 
 
 
-<!-- MAIN -->
+<!-- =========================
+     MAIN
+========================= -->
 
 <div class="container">
 
@@ -470,6 +633,7 @@ atOptions = {
                     type="text"
                     id="youtubeUrl"
                     placeholder="https://www.youtube.com/watch?v=..."
+                    aria-label="YouTube Video URL"
                 >
 
             </div>
@@ -487,6 +651,7 @@ atOptions = {
                     value="4"
                     min="1"
                     max="20"
+                    aria-label="Number of preview screens"
                 >
 
             </div>
@@ -573,12 +738,14 @@ atOptions = {
 
 
 
-    <!-- PREVIEW HEADER -->
+    <!-- =========================
+         PREVIEW HEADER
+    ========================== -->
 
     <div class="preview-header">
 
         <h2>
-            Video Previews
+            YouTube Video Previews
         </h2>
 
         <div
@@ -592,7 +759,9 @@ atOptions = {
 
 
 
-    <!-- PREVIEW GRID -->
+    <!-- =========================
+         PREVIEW GRID
+    ========================== -->
 
     <div
         class="preview-grid"
@@ -635,15 +804,148 @@ atOptions = {
     </div>
 
 
+
+    <!-- =========================
+         SEO CONTENT
+    ========================== -->
+
+    <section class="seo-content">
+
+        <h2>
+            YouTube Video Preview Tool
+        </h2>
+
+        <p>
+            YTPreview is a free YouTube video preview and
+            embed testing tool. Enter a YouTube video URL
+            and create multiple preview screens on the same
+            page. The tool can be useful for checking how
+            YouTube videos appear inside embedded players.
+        </p>
+
+
+        <h2>
+            How to Preview a YouTube Video
+        </h2>
+
+        <ol>
+
+            <li>
+                Copy your YouTube video URL.
+            </li>
+
+            <li>
+                Paste the URL into the YouTube Video URL field.
+            </li>
+
+            <li>
+                Select the number of preview screens.
+            </li>
+
+            <li>
+                Click the Create Preview button.
+            </li>
+
+            <li>
+                Use the preview players to check the embedded
+                video presentation.
+            </li>
+
+        </ol>
+
+
+        <h2>
+            YouTube Embed Preview
+        </h2>
+
+        <p>
+            This YouTube embed preview tool lets you test
+            multiple embedded YouTube players on one page.
+            It supports standard YouTube URLs, YouTube Shorts
+            URLs, shortened youtu.be links and YouTube embed URLs.
+        </p>
+
+
+        <div class="faq">
+
+            <h2>
+                Frequently Asked Questions
+            </h2>
+
+
+            <div class="faq-item">
+
+                <h3>
+                    What is YTPreview?
+                </h3>
+
+                <p>
+                    YTPreview is a browser-based YouTube video
+                    preview tool that allows you to create
+                    multiple embedded video preview screens.
+                </p>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <h3>
+                    How many YouTube previews can I create?
+                </h3>
+
+                <p>
+                    You can create between 1 and 20 preview
+                    screens at a time.
+                </p>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <h3>
+                    Which YouTube URLs are supported?
+                </h3>
+
+                <p>
+                    The tool supports regular YouTube watch
+                    URLs, YouTube Shorts URLs, youtu.be links
+                    and YouTube embed URLs.
+                </p>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <h3>
+                    Is YTPreview free?
+                </h3>
+
+                <p>
+                    Yes. YTPreview is available as a free
+                    browser-based YouTube preview tool.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
 </div>
 
 
 
-<!-- FOOTER -->
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
-    © 2026 YTPreview — YouTube Multi Preview Tool
+    © 2026 YTPreview — YouTube Video Preview Tool
 
 </footer>
 
@@ -1182,3 +1484,4 @@ document
 
 </body>
 </html>
+```
