@@ -4,64 +4,37 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Free YouTube Watch Time Calculator & Video Analyzer</title>
-
-<meta name="description" content="Free YouTube watch time calculator, video analyzer and SEO tool. Calculate estimated watch hours, analyze your video and improve your YouTube content.">
-
-<meta name="keywords" content="YouTube watch time calculator, YouTube video analyzer, YouTube SEO tool, watch hours calculator, YouTube views calculator">
-
-<meta name="theme-color" content="#0b0b0f">
+<title>YouTube Multi Preview</title>
 
 <style>
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
 }
 
 body{
     font-family:Arial,Helvetica,sans-serif;
-    background:#08080c;
+    background:#08090d;
     color:#fff;
-    line-height:1.6;
 }
 
-a{
-    color:inherit;
-    text-decoration:none;
+header{
+    background:#0d0e13;
+    border-bottom:1px solid #292c35;
 }
 
-.container{
-    width:92%;
-    max-width:1150px;
+.nav{
+    max-width:1300px;
     margin:auto;
-}
-
-/* NAVBAR */
-
-.navbar{
-    height:70px;
-    border-bottom:1px solid #24242c;
-    background:rgba(8,8,12,.95);
-    display:flex;
-    align-items:center;
-    position:sticky;
-    top:0;
-    z-index:1000;
-}
-
-.nav-inner{
+    padding:18px 20px;
     display:flex;
     justify-content:space-between;
     align-items:center;
 }
 
 .logo{
-    font-size:22px;
+    font-size:23px;
     font-weight:800;
 }
 
@@ -69,514 +42,273 @@ a{
     color:#ff3030;
 }
 
-.nav-links{
-    display:flex;
-    gap:28px;
-    color:#bbb;
-    font-size:14px;
+.status{
+    color:#888;
+    font-size:13px;
 }
-
-.nav-links a:hover{
-    color:#fff;
-}
-
-/* HERO */
 
 .hero{
-    padding:80px 0 65px;
     text-align:center;
-    background:
-    radial-gradient(circle at top,#2a1015 0,#08080c 42%);
-}
-
-.badge{
-    display:inline-block;
-    background:#17171e;
-    border:1px solid #30303a;
-    padding:7px 15px;
-    border-radius:30px;
-    font-size:13px;
-    color:#bbb;
-    margin-bottom:20px;
-}
-
-.badge span{
-    color:#ff3b3b;
+    padding:50px 20px 35px;
 }
 
 .hero h1{
-    font-size:48px;
-    line-height:1.15;
-    max-width:850px;
-    margin:0 auto 20px;
+    font-size:42px;
+    margin-bottom:12px;
 }
 
 .hero h1 span{
-    color:#ff3333;
+    color:#ff3030;
 }
 
 .hero p{
-    max-width:720px;
+    color:#9296a1;
+    max-width:700px;
     margin:auto;
-    color:#a8a8b0;
-    font-size:17px;
+    line-height:1.6;
 }
 
-/* TOOL */
-
-.tool-section{
-    margin-top:-5px;
-}
-
-.tool-box{
-    max-width:900px;
+.container{
+    max-width:1300px;
     margin:auto;
-    background:#111117;
-    border:1px solid #292932;
-    border-radius:18px;
-    padding:30px;
-    box-shadow:0 20px 70px rgba(0,0,0,.35);
+    padding:0 20px;
 }
 
-.input-label{
+.panel{
+    background:#111319;
+    border:1px solid #292c35;
+    border-radius:15px;
+    padding:25px;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 180px auto;
+    gap:12px;
+}
+
+label{
     display:block;
-    margin-bottom:9px;
-    color:#ddd;
-    font-weight:600;
+    font-size:13px;
+    font-weight:bold;
+    color:#ccc;
+    margin-bottom:8px;
 }
 
-.input-row{
-    display:flex;
-    gap:10px;
-}
-
-input,
-select{
+input{
     width:100%;
-    background:#08080c;
-    border:1px solid #35353f;
-    color:#fff;
-    padding:15px;
-    border-radius:10px;
+    height:50px;
+    padding:0 14px;
+    background:#08090d;
+    border:1px solid #363944;
+    color:white;
+    border-radius:9px;
     outline:none;
-    font-size:15px;
 }
 
-input:focus,
-select:focus{
+input:focus{
     border-color:#ff3030;
 }
 
-.primary-btn{
-    border:none;
+button{
+    height:50px;
+    padding:0 22px;
+    border:0;
+    border-radius:9px;
     background:#ff3030;
-    color:white;
-    padding:0 28px;
-    border-radius:10px;
-    font-weight:700;
+    color:#fff;
+    font-weight:bold;
     cursor:pointer;
-    font-size:15px;
-    white-space:nowrap;
 }
 
-.primary-btn:hover{
-    background:#e32323;
+button:hover{
+    background:#df2424;
 }
 
-.helper{
-    color:#777780;
-    font-size:12px;
-    margin-top:9px;
+.secondary{
+    background:#242731;
 }
 
-/* EXTRA INPUTS */
-
-.input-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:15px;
-    margin-top:22px;
+.secondary:hover{
+    background:#30343e;
 }
 
-.field small{
-    display:block;
-    color:#777;
-    margin-top:7px;
+.controls{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:18px;
 }
 
-/* LOADING */
-
-.loading{
-    display:none;
-    text-align:center;
-    margin-top:25px;
+.controls button{
+    height:42px;
 }
 
-.spinner{
-    width:35px;
-    height:35px;
-    border:3px solid #333;
-    border-top-color:#ff3030;
-    border-radius:50%;
-    animation:spin 1s linear infinite;
-    margin:auto auto 10px;
-}
-
-@keyframes spin{
-    to{
-        transform:rotate(360deg);
-    }
-}
-
-/* RESULT */
-
-.result{
-    display:none;
-    margin-top:25px;
-    border-top:1px solid #292932;
-    padding-top:25px;
-}
-
-.video-preview{
-    display:grid;
-    grid-template-columns:220px 1fr;
-    gap:20px;
-    align-items:center;
-}
-
-.thumbnail{
-    width:100%;
-    border-radius:12px;
-    border:1px solid #333;
-    background:#050507;
-    aspect-ratio:16/9;
-    object-fit:cover;
-}
-
-.video-info h3{
-    margin-bottom:8px;
-    font-size:21px;
-}
-
-.video-info p{
-    color:#92929a;
-    font-size:14px;
-}
-
-.stats{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:12px;
-    margin-top:22px;
-}
-
-.stat{
-    background:#18181f;
-    border:1px solid #292932;
-    padding:18px;
-    border-radius:12px;
-}
-
-.stat-label{
-    color:#85858e;
-    font-size:12px;
-    margin-bottom:5px;
-}
-
-.stat-value{
-    font-size:22px;
-    font-weight:800;
-}
-
-.stat-value.red{
-    color:#ff3b3b;
-}
-
-/* NOTICE */
-
-.notice{
-    margin-top:20px;
-    background:#171217;
-    border:1px solid #402126;
-    color:#aaa;
-    border-radius:10px;
+.info{
+    margin-top:18px;
     padding:14px;
+    border:1px solid #292c35;
+    background:#171920;
+    border-radius:9px;
+    color:#888d99;
     font-size:13px;
 }
 
-/* FEATURES */
-
-.section{
-    padding:75px 0;
+.preview-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin:35px 0 15px;
 }
 
-.section-title{
-    text-align:center;
-    margin-bottom:40px;
+.preview-header h2{
+    font-size:20px;
 }
 
-.section-title h2{
-    font-size:34px;
-    margin-bottom:10px;
-}
-
-.section-title p{
+.count{
     color:#888;
+    font-size:13px;
 }
 
-.features{
+/* FIXED 4 COLUMNS */
+
+.preview-grid{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    padding-bottom:50px;
 }
 
 .card{
-    background:#111117;
-    border:1px solid #292932;
-    padding:27px;
-    border-radius:15px;
+    background:#111319;
+    border:1px solid #292c35;
+    border-radius:11px;
+    overflow:hidden;
 }
 
-.icon{
-    width:44px;
-    height:44px;
+.card-top{
+    height:38px;
     display:flex;
     align-items:center;
-    justify-content:center;
-    background:#261014;
-    border-radius:10px;
-    color:#ff3b3b;
-    font-size:21px;
-    margin-bottom:18px;
+    justify-content:space-between;
+    padding:0 11px;
+    background:#171920;
+    border-bottom:1px solid #292c35;
 }
 
-.card h3{
-    margin-bottom:8px;
+.card-number{
+    font-size:11px;
+    color:#aaa;
+    font-weight:bold;
 }
 
-.card p{
-    color:#888;
-    font-size:14px;
+.card-status{
+    font-size:10px;
+    color:#5dcc83;
 }
 
-/* SEO TOOL */
-
-.seo-box{
-    max-width:900px;
-    margin:auto;
-    background:#111117;
-    border:1px solid #292932;
-    padding:28px;
-    border-radius:16px;
-}
-
-.textarea{
+.player{
     width:100%;
-    min-height:110px;
-    resize:vertical;
-    background:#08080c;
-    border:1px solid #35353f;
-    border-radius:10px;
-    color:white;
-    padding:15px;
-    outline:none;
-    font-family:inherit;
+    aspect-ratio:16/9;
+    background:#000;
 }
 
-.seo-fields{
-    display:grid;
-    gap:18px;
-}
-
-.seo-result{
-    display:none;
-    margin-top:20px;
-}
-
-.score{
-    text-align:center;
-    padding:25px;
-    background:#18181f;
-    border-radius:12px;
-    border:1px solid #292932;
-}
-
-.score-number{
-    font-size:45px;
-    font-weight:900;
-    color:#ff3b3b;
-}
-
-.progress{
+.player iframe{
     width:100%;
-    height:10px;
-    background:#2b2b33;
-    border-radius:10px;
-    overflow:hidden;
-    margin-top:12px;
-}
-
-.progress-bar{
     height:100%;
-    width:0%;
-    background:#ff3030;
-    transition:.5s;
+    border:0;
+    display:block;
 }
 
-/* CALCULATOR */
-
-.calculator{
-    max-width:850px;
-    margin:auto;
+.card-bottom{
+    padding:9px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    color:#777;
+    font-size:10px;
 }
 
-.calc-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:18px;
+.open-btn{
+    height:28px;
+    padding:0 9px;
+    font-size:10px;
+    background:#252832;
 }
 
-.calc-card{
-    background:#111117;
-    border:1px solid #292932;
-    border-radius:15px;
-    padding:25px;
-}
-
-.calc-result{
-    margin-top:18px;
-    padding:20px;
-    background:#18181f;
-    border-radius:12px;
+.empty{
+    grid-column:1/-1;
     text-align:center;
+    padding:70px 20px;
+    border:1px dashed #333640;
+    border-radius:14px;
+    color:#777;
 }
 
-.big-result{
-    font-size:35px;
-    font-weight:900;
-    color:#ff3434;
-}
-
-/* FAQ */
-
-.faq{
-    max-width:850px;
-    margin:auto;
-}
-
-details{
-    background:#111117;
-    border:1px solid #292932;
+.empty-icon{
+    font-size:45px;
     margin-bottom:12px;
-    border-radius:10px;
-    padding:17px 20px;
 }
-
-summary{
-    cursor:pointer;
-    font-weight:600;
-}
-
-details p{
-    color:#888;
-    margin-top:12px;
-    font-size:14px;
-}
-
-/* FOOTER */
 
 footer{
-    border-top:1px solid #24242c;
-    padding:35px 0;
-    color:#777;
+    border-top:1px solid #292c35;
     text-align:center;
-    font-size:13px;
+    padding:25px;
+    color:#666;
+    font-size:12px;
 }
 
-.footer-logo{
-    color:#fff;
-    font-weight:800;
-    font-size:18px;
-    margin-bottom:8px;
-}
+/* TABLET */
 
-.footer-logo span{
-    color:#ff3030;
+@media(max-width:1000px){
+
+    .preview-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .form-grid{
+        grid-template-columns:1fr 150px;
+    }
+
+    .form-grid > div:last-child{
+        grid-column:1/-1;
+    }
+
+    .form-grid button{
+        width:100%;
+    }
 }
 
 /* MOBILE */
 
-@media(max-width:800px){
-
-    .nav-links{
-        display:none;
-    }
-
-    .hero{
-        padding:60px 0 45px;
-    }
-
-    .hero h1{
-        font-size:35px;
-    }
-
-    .hero p{
-        font-size:15px;
-    }
-
-    .tool-box{
-        padding:20px;
-    }
-
-    .input-row{
-        flex-direction:column;
-    }
-
-    .primary-btn{
-        height:50px;
-    }
-
-    .input-grid{
-        grid-template-columns:1fr;
-    }
-
-    .video-preview{
-        grid-template-columns:1fr;
-    }
-
-    .stats{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .features{
-        grid-template-columns:1fr;
-    }
-
-    .calc-grid{
-        grid-template-columns:1fr;
-    }
-
-    .section{
-        padding:55px 0;
-    }
-
-    .section-title h2{
-        font-size:28px;
-    }
-}
-
-@media(max-width:450px){
-
-    .stats{
-        grid-template-columns:1fr;
-    }
+@media(max-width:600px){
 
     .hero h1{
         font-size:30px;
     }
 
-    .tool-box{
-        border-radius:12px;
+    .container{
+        padding:0 12px;
+    }
+
+    .panel{
+        padding:18px;
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .form-grid > div:last-child{
+        grid-column:auto;
+    }
+
+    .preview-grid{
+        grid-template-columns:1fr;
+    }
+
+    .status{
+        display:none;
     }
 }
 </style>
@@ -584,719 +316,148 @@ footer{
 
 <body>
 
-<!-- NAVBAR -->
+<header>
+    <div class="nav">
 
-<header class="navbar">
-<div class="container nav-inner">
+        <div class="logo">
+            YT<span>Preview</span>
+        </div>
 
-<div class="logo">
-YT<span>Tools</span>
-</div>
+        <div class="status">
+            Multi Video Preview Tool
+        </div>
 
-<nav class="nav-links">
-<a href="#analyzer">Analyzer</a>
-<a href="#calculator">Calculator</a>
-<a href="#seo">SEO Tool</a>
-<a href="#faq">FAQ</a>
-</nav>
-
-</div>
+    </div>
 </header>
 
 
-<!-- HERO -->
-
 <section class="hero">
 
-<div class="container">
+    <h1>
+        YouTube <span>Multi Preview</span>
+    </h1>
 
-<div class="badge">
-<span>●</span> Free YouTube Creator Tool
-</div>
-
-<h1>
-YouTube Watch Time
-<span>Calculator & Analyzer</span>
-</h1>
-
-<p>
-Analyze your YouTube video, calculate estimated watch hours,
-and check your content's SEO potential with our free creator tools.
-</p>
-
-</div>
+    <p>
+        Create multiple embedded YouTube preview panels
+        for testing and presentation.
+    </p>
 
 </section>
 
 
-<!-- ANALYZER -->
-
-<section class="tool-section" id="analyzer">
-
 <div class="container">
 
-<div class="tool-box">
+    <div class="panel">
 
-<label class="input-label">
-YouTube Video URL
-</label>
+        <div class="form-grid">
 
-<div class="input-row">
+            <div>
+                <label>YouTube Video URL</label>
 
-<input
-type="text"
-id="youtubeUrl"
-placeholder="https://www.youtube.com/watch?v=..."
->
-
-<button class="primary-btn" onclick="analyzeVideo()">
-Analyze Video
-</button>
-
-</div>
-
-<div class="helper">
-Paste a public YouTube video URL.
-</div>
+                <input
+                    id="youtubeUrl"
+                    type="text"
+                    placeholder="https://www.youtube.com/watch?v=..."
+                >
+            </div>
 
 
-<div class="input-grid">
+            <div>
+                <label>Preview Screens</label>
 
-<div class="field">
-
-<label class="input-label">
-Current Views
-</label>
-
-<input
-type="number"
-id="views"
-placeholder="10000"
-min="0"
->
-
-<small>Example: 10000</small>
-
-</div>
+                <input
+                    id="screenCount"
+                    type="number"
+                    min="1"
+                    max="20"
+                    value="4"
+                >
+            </div>
 
 
-<div class="field">
+            <div>
+                <label>&nbsp;</label>
 
-<label class="input-label">
-Video Length
-</label>
+                <button
+                    onclick="createPreviews()"
+                    style="width:100%"
+                >
+                    Create Preview
+                </button>
+            </div>
 
-<input
-type="text"
-id="duration"
-placeholder="05:30"
->
-
-<small>Format: MM:SS</small>
-
-</div>
+        </div>
 
 
-<div class="field">
+        <div class="controls">
 
-<label class="input-label">
-Average Watch %
-</label>
+            <button
+                class="secondary"
+                onclick="playAll()"
+            >
+                ▶ Play All
+            </button>
 
-<input
-type="number"
-id="watchPercent"
-placeholder="50"
-min="1"
-max="100"
->
+            <button
+                class="secondary"
+                onclick="clearPreviews()"
+            >
+                Clear All
+            </button>
 
-<small>Example: 50%</small>
-
-</div>
-
-</div>
+        </div>
 
 
-<div class="loading" id="loading">
+        <div class="info">
 
-<div class="spinner"></div>
+            <strong>Preview mode:</strong>
+            Players are created without automatic playback.
+            Use <strong>Play All</strong> when you want to start
+            the preview session. Browser/YouTube autoplay policies
+            may prevent some players from starting automatically.
 
-<p>Analyzing your video...</p>
+        </div>
 
-</div>
+    </div>
 
 
-<!-- RESULT -->
+    <div class="preview-header">
 
-<div class="result" id="result">
+        <h2>Video Previews</h2>
 
-<div class="video-preview">
+        <div
+            class="count"
+            id="count"
+        >
+            0 screens
+        </div>
 
-<img
-id="thumbnail"
-class="thumbnail"
-alt="YouTube Thumbnail"
->
+    </div>
 
-<div class="video-info">
 
-<h3 id="videoIdText">
-YouTube Video
-</h3>
+    <div
+        class="preview-grid"
+        id="previewGrid"
+    >
 
-<p>
-Video ID: <strong id="videoId"></strong>
-</p>
+        <div class="empty">
 
-<p style="margin-top:8px">
-Your estimated watch time is calculated from
-views × video duration × average watch percentage.
-</p>
+            <div class="empty-icon">
+                ▶️
+            </div>
+
+            Enter a YouTube URL and create preview screens.
+
+        </div>
+
+    </div>
 
 </div>
 
-</div>
-
-
-<div class="stats">
-
-<div class="stat">
-
-<div class="stat-label">
-Current Views
-</div>
-
-<div class="stat-value" id="resultViews">
-0
-</div>
-
-</div>
-
-
-<div class="stat">
-
-<div class="stat-label">
-Average Watch
-</div>
-
-<div class="stat-value" id="resultWatch">
-0%
-</div>
-
-</div>
-
-
-<div class="stat">
-
-<div class="stat-label">
-Watch Minutes
-</div>
-
-<div class="stat-value" id="resultMinutes">
-0
-</div>
-
-</div>
-
-
-<div class="stat">
-
-<div class="stat-label">
-Estimated Hours
-</div>
-
-<div class="stat-value red" id="resultHours">
-0
-</div>
-
-</div>
-
-</div>
-
-
-<div class="notice">
-
-<strong>Important:</strong>
-This tool calculates estimated watch time from the information
-you enter. It does not create artificial YouTube views,
-watch sessions, subscribers, or engagement.
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- FEATURES -->
-
-<section class="section">
-
-<div class="container">
-
-<div class="section-title">
-
-<h2>What Can You Do?</h2>
-
-<p>
-Simple tools for YouTube creators
-</p>
-
-</div>
-
-
-<div class="features">
-
-<div class="card">
-
-<div class="icon">📊</div>
-
-<h3>Video Analyzer</h3>
-
-<p>
-Enter your YouTube URL and view the video's thumbnail,
-video ID and estimated performance information.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<div class="icon">⏱️</div>
-
-<h3>Watch Time Calculator</h3>
-
-<p>
-Calculate estimated watch minutes and watch hours
-using your views, duration and average retention.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<div class="icon">🚀</div>
-
-<h3>SEO Analyzer</h3>
-
-<p>
-Check your title, description and keywords for
-basic YouTube SEO optimization.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<div class="icon">📱</div>
-
-<h3>Mobile Friendly</h3>
-
-<p>
-The website is responsive and works on phones,
-tablets, laptops and desktop computers.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<div class="icon">⚡</div>
-
-<h3>Fast & Lightweight</h3>
-
-<p>
-Everything runs directly in your browser without
-requiring a database for the calculator tools.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<div class="icon">🔒</div>
-
-<h3>Privacy Friendly</h3>
-
-<p>
-The calculator uses the information you enter
-directly in your browser.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- WATCH TIME CALCULATOR -->
-
-<section class="section" id="calculator">
-
-<div class="container">
-
-<div class="section-title">
-
-<h2>YouTube Watch Time Calculator</h2>
-
-<p>
-Estimate total watch hours from your video metrics.
-</p>
-
-</div>
-
-
-<div class="calculator">
-
-<div class="calc-grid">
-
-<div class="calc-card">
-
-<label class="input-label">
-Number of Views
-</label>
-
-<input
-type="number"
-id="calcViews"
-placeholder="100000"
-min="0"
->
-
-</div>
-
-
-<div class="calc-card">
-
-<label class="input-label">
-Video Duration
-</label>
-
-<input
-type="text"
-id="calcDuration"
-placeholder="10:00"
->
-
-</div>
-
-
-<div class="calc-card">
-
-<label class="input-label">
-Average Watch Percentage
-</label>
-
-<input
-type="number"
-id="calcRetention"
-placeholder="50"
-min="1"
-max="100"
->
-
-</div>
-
-
-<div class="calc-card">
-
-<label class="input-label">
-Calculate
-</label>
-
-<button
-class="primary-btn"
-style="width:100%;height:50px"
-onclick="calculateWatchTime()"
->
-Calculate Watch Time
-</button>
-
-</div>
-
-</div>
-
-
-<div class="calc-result">
-
-<div>
-Estimated Watch Time
-</div>
-
-<div
-class="big-result"
-id="calcHours"
->
-0 Hours
-</div>
-
-<div
-style="color:#777;margin-top:5px"
-id="calcMinutes"
->
-0 minutes
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- SEO -->
-
-<section class="section" id="seo">
-
-<div class="container">
-
-<div class="section-title">
-
-<h2>YouTube SEO Analyzer</h2>
-
-<p>
-Enter your video title, description and keywords.
-</p>
-
-</div>
-
-
-<div class="seo-box">
-
-<div class="seo-fields">
-
-<div>
-
-<label class="input-label">
-Video Title
-</label>
-
-<input
-type="text"
-id="seoTitle"
-placeholder="Enter your YouTube video title..."
->
-
-</div>
-
-
-<div>
-
-<label class="input-label">
-Description
-</label>
-
-<textarea
-class="textarea"
-id="seoDescription"
-placeholder="Enter your video description..."
-></textarea>
-
-</div>
-
-
-<div>
-
-<label class="input-label">
-Keywords / Tags
-</label>
-
-<input
-type="text"
-id="seoKeywords"
-placeholder="youtube, shorts, viral, tutorial..."
->
-
-</div>
-
-
-<button
-class="primary-btn"
-style="height:50px"
-onclick="analyzeSEO()"
->
-Analyze SEO
-</button>
-
-</div>
-
-
-<div
-class="seo-result"
-id="seoResult"
->
-
-<div class="score">
-
-<div>
-SEO Score
-</div>
-
-<div
-class="score-number"
-id="seoScore"
->
-0/100
-</div>
-
-<div class="progress">
-
-<div
-class="progress-bar"
-id="seoBar"
-></div>
-
-</div>
-
-<p
-id="seoMessage"
-style="color:#888;margin-top:12px"
->
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- FAQ -->
-
-<section class="section" id="faq">
-
-<div class="container">
-
-<div class="section-title">
-
-<h2>Frequently Asked Questions</h2>
-
-<p>
-Everything you need to know about this tool.
-</p>
-
-</div>
-
-
-<div class="faq">
-
-<details>
-
-<summary>
-Is this YouTube tool free?
-</summary>
-
-<p>
-Yes. The calculator and analyzer features on this page
-are free to use.
-</p>
-
-</details>
-
-
-<details>
-
-<summary>
-Does this website generate real YouTube views?
-</summary>
-
-<p>
-No. This website does not generate artificial views,
-watch sessions, subscribers or engagement. It provides
-calculations and analysis tools for creators.
-</p>
-
-</details>
-
-
-<details>
-
-<summary>
-How is watch time calculated?
-</summary>
-
-<p>
-Estimated watch time is calculated using the number of
-views, video duration and average watch percentage.
-</p>
-
-</details>
-
-
-<details>
-
-<summary>
-Can I host this website on GitHub Pages?
-</summary>
-
-<p>
-Yes. This is a single HTML file and can be hosted on
-GitHub Pages without a database.
-</p>
-
-</details>
-
-
-<details>
-
-<summary>
-Does the analyzer automatically fetch YouTube views?
-</summary>
-
-<p>
-The basic version uses the metrics entered by the user.
-For automatic public YouTube statistics, a legitimate
-YouTube Data API or backend integration would be required.
-</p>
-
-</details>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- FOOTER -->
 
 <footer>
 
-<div class="container">
-
-<div class="footer-logo">
-YT<span>Tools</span>
-</div>
-
-<p>
-Free YouTube creator tools for video analysis,
-watch-time calculations and SEO research.
-</p>
-
-<p style="margin-top:12px">
-© 2026 YTTools. All rights reserved.
-</p>
-
-</div>
+    © 2026 YTPreview — YouTube Multi Preview Tool
 
 </footer>
 
@@ -1313,30 +474,73 @@ function getVideoID(url){
 
         const parsed = new URL(url);
 
-        if(parsed.hostname.includes("youtu.be")){
-            return parsed.pathname.substring(1).split("/")[0];
+        const host =
+            parsed.hostname.toLowerCase();
+
+
+        /* youtu.be */
+
+        if(host.includes("youtu.be")){
+
+            const id =
+                parsed.pathname
+                .replace("/","")
+                .split("/")[0];
+
+            return cleanID(id);
         }
 
-        if(parsed.hostname.includes("youtube.com")){
 
-            const watchID = parsed.searchParams.get("v");
+        /* youtube.com */
+
+        if(host.includes("youtube.com")){
+
+            /* Normal video */
+
+            const watchID =
+                parsed.searchParams.get("v");
 
             if(watchID){
-                return watchID;
+
+                return cleanID(watchID);
             }
 
-            const parts = parsed.pathname.split("/");
 
-            const shortsIndex = parts.indexOf("shorts");
+            const parts =
+                parsed.pathname
+                .split("/")
+                .filter(Boolean);
 
-            if(shortsIndex !== -1 && parts[shortsIndex + 1]){
-                return parts[shortsIndex + 1];
+
+            /* Shorts */
+
+            const shortsIndex =
+                parts.indexOf("shorts");
+
+            if(
+                shortsIndex !== -1 &&
+                parts[shortsIndex + 1]
+            ){
+
+                return cleanID(
+                    parts[shortsIndex + 1]
+                );
             }
 
-            const embedIndex = parts.indexOf("embed");
 
-            if(embedIndex !== -1 && parts[embedIndex + 1]){
-                return parts[embedIndex + 1];
+            /* Embed */
+
+            const embedIndex =
+                parts.indexOf("embed");
+
+            if(
+                embedIndex !== -1 &&
+                parts[embedIndex + 1]
+            ){
+
+                return cleanID(
+                    parts[embedIndex + 1]
+                );
             }
 
         }
@@ -1352,384 +556,326 @@ function getVideoID(url){
 
 
 /* =========================
-   FORMAT NUMBERS
+   CLEAN ID
 ========================= */
 
-function formatNumber(number){
+function cleanID(id){
 
-    return Number(number).toLocaleString("en-IN");
+    if(!id){
+        return null;
+    }
 
+    return id
+        .replace(/[^a-zA-Z0-9_-]/g,"")
+        .substring(0,11);
 }
 
 
 /* =========================
-   DURATION TO MINUTES
+   CREATE PREVIEWS
 ========================= */
 
-function durationToMinutes(duration){
-
-    const parts = duration.trim().split(":");
-
-    if(parts.length === 2){
-
-        const minutes = parseInt(parts[0]) || 0;
-        const seconds = parseInt(parts[1]) || 0;
-
-        return minutes + (seconds / 60);
-
-    }
-
-    if(parts.length === 3){
-
-        const hours = parseInt(parts[0]) || 0;
-        const minutes = parseInt(parts[1]) || 0;
-        const seconds = parseInt(parts[2]) || 0;
-
-        return (hours * 60) + minutes + (seconds / 60);
-
-    }
-
-    return 0;
-}
-
-
-/* =========================
-   ANALYZE VIDEO
-========================= */
-
-function analyzeVideo(){
+function createPreviews(){
 
     const url =
-        document.getElementById("youtubeUrl").value.trim();
-
-    const views =
-        parseInt(document.getElementById("views").value) || 0;
-
-    const duration =
-        document.getElementById("duration").value.trim();
-
-    const watchPercent =
-        parseFloat(document.getElementById("watchPercent").value) || 0;
+        document
+        .getElementById("youtubeUrl")
+        .value
+        .trim();
 
 
-    const videoID = getVideoID(url);
+    const count =
+        parseInt(
+            document
+            .getElementById("screenCount")
+            .value
+        );
+
+
+    const videoID =
+        getVideoID(url);
 
 
     if(!videoID){
 
-        alert("Please enter a valid YouTube video URL.");
+        alert(
+            "Please enter a valid YouTube video URL."
+        );
 
         return;
+    }
+
+
+    if(
+        isNaN(count) ||
+        count < 1 ||
+        count > 20
+    ){
+
+        alert(
+            "Please select between 1 and 20 screens."
+        );
+
+        return;
+    }
+
+
+    const grid =
+        document
+        .getElementById("previewGrid");
+
+
+    grid.innerHTML = "";
+
+
+    for(
+        let i = 1;
+        i <= count;
+        i++
+    ){
+
+        const card =
+            document.createElement("div");
+
+        card.className = "card";
+
+
+        /* TOP */
+
+        const top =
+            document.createElement("div");
+
+        top.className = "card-top";
+
+
+        const number =
+            document.createElement("div");
+
+        number.className = "card-number";
+
+        number.textContent =
+            "PREVIEW #" + i;
+
+
+        const status =
+            document.createElement("div");
+
+        status.className = "card-status";
+
+        status.textContent =
+            "READY";
+
+
+        top.appendChild(number);
+        top.appendChild(status);
+
+
+        /* PLAYER */
+
+        const player =
+            document.createElement("div");
+
+        player.className = "player";
+
+
+        const iframe =
+            document.createElement("iframe");
+
+
+        iframe.className =
+            "youtube-player";
+
+
+        iframe.dataset.videoId =
+            videoID;
+
+
+        iframe.src =
+            "https://www.youtube-nocookie.com/embed/" +
+            videoID +
+            "?enablejsapi=1&rel=0";
+
+
+        iframe.title =
+            "YouTube Preview " + i;
+
+
+        iframe.allow =
+            "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+
+
+        iframe.allowFullscreen = true;
+
+        iframe.loading = "lazy";
+
+
+        player.appendChild(iframe);
+
+
+        /* BOTTOM */
+
+        const bottom =
+            document.createElement("div");
+
+        bottom.className =
+            "card-bottom";
+
+
+        const idText =
+            document.createElement("span");
+
+        idText.textContent =
+            "ID: " + videoID;
+
+
+        const openButton =
+            document.createElement("button");
+
+        openButton.className =
+            "open-btn";
+
+        openButton.textContent =
+            "Open";
+
+
+        openButton.onclick =
+            function(){
+
+                window.open(
+                    "https://www.youtube.com/watch?v=" +
+                    videoID,
+                    "_blank"
+                );
+
+            };
+
+
+        bottom.appendChild(idText);
+
+        bottom.appendChild(openButton);
+
+
+        card.appendChild(top);
+
+        card.appendChild(player);
+
+        card.appendChild(bottom);
+
+
+        grid.appendChild(card);
 
     }
 
 
-    if(views <= 0){
-
-        alert("Please enter your current video views.");
-
-        return;
-
-    }
+    document
+    .getElementById("count")
+    .textContent =
+        count + " screens";
 
 
-    if(!duration){
-
-        alert("Please enter the video duration.");
-
-        return;
-
-    }
-
-
-    if(watchPercent <= 0 || watchPercent > 100){
-
-        alert("Average watch percentage must be between 1 and 100.");
-
-        return;
-
-    }
-
-
-    document.getElementById("loading").style.display = "block";
-
-    document.getElementById("result").style.display = "none";
-
+    /*
+       Give the browser time to create
+       all iframe elements.
+    */
 
     setTimeout(function(){
 
-        const videoMinutes =
-            durationToMinutes(duration);
+        window.scrollTo({
 
-        const watchMinutes =
-            views *
-            videoMinutes *
-            (watchPercent / 100);
+            top:
+                document
+                .querySelector(".preview-header")
+                .offsetTop - 20,
 
-        const watchHours =
-            watchMinutes / 60;
+            behavior:"smooth"
 
-
-        const thumbnail =
-            document.getElementById("thumbnail");
-
-
-        thumbnail.src =
-            "https://img.youtube.com/vi/" +
-            videoID +
-            "/hqdefault.jpg";
-
-
-        document.getElementById("videoId").textContent =
-            videoID;
-
-        document.getElementById("videoIdText").textContent =
-            "YouTube Video Analyzer";
-
-        document.getElementById("resultViews").textContent =
-            formatNumber(views);
-
-        document.getElementById("resultWatch").textContent =
-            watchPercent + "%";
-
-        document.getElementById("resultMinutes").textContent =
-            formatNumber(Math.round(watchMinutes));
-
-        document.getElementById("resultHours").textContent =
-            watchHours.toFixed(2);
-
-
-        document.getElementById("loading").style.display =
-            "none";
-
-        document.getElementById("result").style.display =
-            "block";
-
-
-        document.getElementById("result").scrollIntoView({
-            behavior:"smooth",
-            block:"center"
         });
 
-
-    },700);
-
-}
-
-
-/* =========================
-   WATCH TIME CALCULATOR
-========================= */
-
-function calculateWatchTime(){
-
-    const views =
-        parseInt(document.getElementById("calcViews").value) || 0;
-
-    const duration =
-        document.getElementById("calcDuration").value.trim();
-
-    const retention =
-        parseFloat(document.getElementById("calcRetention").value) || 0;
-
-
-    if(views <= 0){
-
-        alert("Enter a valid number of views.");
-
-        return;
-
-    }
-
-
-    const minutes =
-        durationToMinutes(duration);
-
-
-    if(minutes <= 0){
-
-        alert("Enter duration like 05:30.");
-
-        return;
-
-    }
-
-
-    if(retention <= 0 || retention > 100){
-
-        alert("Watch percentage must be between 1 and 100.");
-
-        return;
-
-    }
-
-
-    const totalMinutes =
-        views *
-        minutes *
-        (retention / 100);
-
-
-    const totalHours =
-        totalMinutes / 60;
-
-
-    document.getElementById("calcHours").textContent =
-        totalHours.toFixed(2) + " Hours";
-
-
-    document.getElementById("calcMinutes").textContent =
-        formatNumber(Math.round(totalMinutes)) +
-        " minutes";
+    },100);
 
 }
 
 
 /* =========================
-   SEO ANALYZER
+   PLAY ALL
 ========================= */
 
-function analyzeSEO(){
+function playAll(){
 
-    const title =
-        document.getElementById("seoTitle").value.trim();
-
-    const description =
-        document.getElementById("seoDescription").value.trim();
-
-    const keywords =
-        document.getElementById("seoKeywords").value.trim();
+    const players =
+        document.querySelectorAll(
+            ".youtube-player"
+        );
 
 
-    let score = 0;
+    if(players.length === 0){
 
+        alert(
+            "First create the preview screens."
+        );
 
-    /* TITLE */
-
-    if(title.length >= 20){
-
-        score += 20;
-
-    }
-
-    if(title.length >= 40){
-
-        score += 10;
-
-    }
-
-    if(title.length <= 70 && title.length > 0){
-
-        score += 10;
-
+        return;
     }
 
 
-    /* DESCRIPTION */
+    players.forEach(function(player){
 
-    if(description.length >= 100){
+        try{
 
-        score += 15;
+            player.contentWindow.postMessage(
+                JSON.stringify({
+                    event:"command",
+                    func:"playVideo",
+                    args:[]
+                }),
+                "*"
+            );
 
-    }
+        }catch(error){
 
-    if(description.length >= 250){
-
-        score += 10;
-
-    }
-
-
-    /* KEYWORDS */
-
-    if(keywords.length > 0){
-
-        score += 15;
-
-    }
-
-    const keywordCount =
-        keywords
-        .split(",")
-        .filter(x => x.trim() !== "")
-        .length;
-
-
-    if(keywordCount >= 5){
-
-        score += 10;
-
-    }
-
-
-    /* TITLE KEYWORD */
-
-    if(title && keywords){
-
-        const firstKeyword =
-            keywords
-            .split(",")[0]
-            .trim()
-            .toLowerCase();
-
-
-        if(
-            firstKeyword &&
-            title.toLowerCase().includes(firstKeyword)
-        ){
-
-            score += 10;
+            console.log(
+                "Player could not be started.",
+                error
+            );
 
         }
 
-    }
-
-
-    score =
-        Math.min(score,100);
-
-
-    document.getElementById("seoScore").textContent =
-        score + "/100";
-
-
-    document.getElementById("seoBar").style.width =
-        score + "%";
-
-
-    let message;
-
-
-    if(score >= 80){
-
-        message =
-            "Your basic SEO setup looks strong. Keep improving your thumbnail, retention and content quality.";
-
-    }else if(score >= 50){
-
-        message =
-            "Your SEO setup is decent. Improve your title, description and keyword coverage.";
-
-    }else{
-
-        message =
-            "There is room for improvement. Add a descriptive title, detailed description and relevant keywords.";
-
-    }
-
-
-    document.getElementById("seoMessage").textContent =
-        message;
-
-
-    document.getElementById("seoResult").style.display =
-        "block";
-
-
-    document.getElementById("seoResult").scrollIntoView({
-        behavior:"smooth",
-        block:"center"
     });
+
+}
+
+
+/* =========================
+   CLEAR
+========================= */
+
+function clearPreviews(){
+
+    const grid =
+        document
+        .getElementById("previewGrid");
+
+
+    grid.innerHTML = `
+
+        <div class="empty">
+
+            <div class="empty-icon">
+                ▶️
+            </div>
+
+            Enter a YouTube URL and create
+            preview screens.
+
+        </div>
+
+    `;
+
+
+    document
+    .getElementById("count")
+    .textContent =
+        "0 screens";
 
 }
 
@@ -1740,15 +886,18 @@ function analyzeSEO(){
 
 document
 .getElementById("youtubeUrl")
-.addEventListener("keydown",function(event){
+.addEventListener(
+    "keydown",
+    function(event){
 
-    if(event.key === "Enter"){
+        if(event.key === "Enter"){
 
-        analyzeVideo();
+            createPreviews();
+
+        }
 
     }
-
-});
+);
 
 </script>
 
