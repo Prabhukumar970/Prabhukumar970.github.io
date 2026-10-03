@@ -6,7 +6,11 @@
 
 <title>YouTube Multi Preview</title>
 
+<meta name="description"
+content="Preview a YouTube video in multiple embedded player windows on one page.">
+
 <style>
+
 *{
     box-sizing:border-box;
     margin:0;
@@ -17,7 +21,10 @@ body{
     font-family:Arial,Helvetica,sans-serif;
     background:#08090d;
     color:#fff;
+    min-height:100vh;
 }
+
+/* HEADER */
 
 header{
     background:#0d0e13;
@@ -47,6 +54,9 @@ header{
     font-size:13px;
 }
 
+
+/* HERO */
+
 .hero{
     text-align:center;
     padding:50px 20px 35px;
@@ -68,11 +78,30 @@ header{
     line-height:1.6;
 }
 
+
+/* AD AREA */
+
+.ad-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:100%;
+    min-height:300px;
+    margin:10px 0 25px;
+    overflow:hidden;
+}
+
+
+/* MAIN CONTAINER */
+
 .container{
     max-width:1300px;
     margin:auto;
     padding:0 20px;
 }
+
+
+/* PANEL */
 
 .panel{
     background:#111319;
@@ -104,11 +133,15 @@ input{
     color:white;
     border-radius:9px;
     outline:none;
+    font-size:14px;
 }
 
 input:focus{
     border-color:#ff3030;
 }
+
+
+/* BUTTON */
 
 button{
     height:50px;
@@ -119,6 +152,7 @@ button{
     color:#fff;
     font-weight:bold;
     cursor:pointer;
+    font-size:14px;
 }
 
 button:hover{
@@ -133,6 +167,9 @@ button:hover{
     background:#30343e;
 }
 
+
+/* CONTROLS */
+
 .controls{
     display:flex;
     gap:10px;
@@ -144,6 +181,9 @@ button:hover{
     height:42px;
 }
 
+
+/* INFO */
+
 .info{
     margin-top:18px;
     padding:14px;
@@ -152,7 +192,11 @@ button:hover{
     border-radius:9px;
     color:#888d99;
     font-size:13px;
+    line-height:1.5;
 }
+
+
+/* PREVIEW HEADER */
 
 .preview-header{
     display:flex;
@@ -170,6 +214,7 @@ button:hover{
     font-size:13px;
 }
 
+
 /* FIXED 4 COLUMNS */
 
 .preview-grid{
@@ -178,6 +223,9 @@ button:hover{
     gap:15px;
     padding-bottom:50px;
 }
+
+
+/* CARD */
 
 .card{
     background:#111319;
@@ -236,6 +284,13 @@ button:hover{
     background:#252832;
 }
 
+.open-btn:hover{
+    background:#343844;
+}
+
+
+/* EMPTY */
+
 .empty{
     grid-column:1/-1;
     text-align:center;
@@ -250,6 +305,9 @@ button:hover{
     margin-bottom:12px;
 }
 
+
+/* FOOTER */
+
 footer{
     border-top:1px solid #292c35;
     text-align:center;
@@ -257,6 +315,7 @@ footer{
     color:#666;
     font-size:12px;
 }
+
 
 /* TABLET */
 
@@ -277,11 +336,17 @@ footer{
     .form-grid button{
         width:100%;
     }
+
 }
+
 
 /* MOBILE */
 
 @media(max-width:600px){
+
+    .hero{
+        padding:40px 15px 30px;
+    }
 
     .hero h1{
         font-size:30px;
@@ -307,16 +372,28 @@ footer{
         grid-template-columns:1fr;
     }
 
+    .nav{
+        padding:15px;
+    }
+
     .status{
         display:none;
     }
+
 }
+
 </style>
+
 </head>
+
 
 <body>
 
+
+<!-- HEADER -->
+
 <header>
+
     <div class="nav">
 
         <div class="logo">
@@ -328,8 +405,12 @@ footer{
         </div>
 
     </div>
+
 </header>
 
+
+
+<!-- HERO -->
 
 <section class="hero">
 
@@ -345,38 +426,77 @@ footer{
 </section>
 
 
+
+<!-- =========================
+     TOP AD
+========================= -->
+
+<div class="ad-container">
+
+<script>
+atOptions = {
+    'key' : 'db587856c43eea7804a1a7a977738840',
+    'format' : 'iframe',
+    'height' : 300,
+    'width' : 160,
+    'params' : {}
+};
+</script>
+
+<script src="https://bicea.org/22/db587856c43eea7804a1a7a977738840"></script>
+
+</div>
+
+
+
+<!-- MAIN -->
+
 <div class="container">
+
+
+    <!-- CONTROL PANEL -->
 
     <div class="panel">
 
         <div class="form-grid">
 
             <div>
-                <label>YouTube Video URL</label>
+
+                <label>
+                    YouTube Video URL
+                </label>
 
                 <input
-                    id="youtubeUrl"
                     type="text"
+                    id="youtubeUrl"
                     placeholder="https://www.youtube.com/watch?v=..."
                 >
+
             </div>
 
 
             <div>
-                <label>Preview Screens</label>
+
+                <label>
+                    Preview Screens
+                </label>
 
                 <input
-                    id="screenCount"
                     type="number"
+                    id="screenCount"
+                    value="4"
                     min="1"
                     max="20"
-                    value="4"
                 >
+
             </div>
 
 
             <div>
-                <label>&nbsp;</label>
+
+                <label>
+                    &nbsp;
+                </label>
 
                 <button
                     onclick="createPreviews()"
@@ -384,10 +504,13 @@ footer{
                 >
                     Create Preview
                 </button>
+
             </div>
 
         </div>
 
+
+        <!-- BUTTONS -->
 
         <div class="controls">
 
@@ -397,6 +520,7 @@ footer{
             >
                 ▶ Play All
             </button>
+
 
             <button
                 class="secondary"
@@ -408,22 +532,54 @@ footer{
         </div>
 
 
+        <!-- INFO -->
+
         <div class="info">
 
             <strong>Preview mode:</strong>
+
             Players are created without automatic playback.
             Use <strong>Play All</strong> when you want to start
-            the preview session. Browser/YouTube autoplay policies
-            may prevent some players from starting automatically.
+            the preview session.
+
+            Browser/YouTube autoplay policies may prevent
+            some players from starting automatically.
 
         </div>
 
     </div>
 
 
+
+    <!-- =========================
+         MIDDLE AD
+    ========================== -->
+
+    <div class="ad-container">
+
+    <script>
+    atOptions = {
+        'key' : 'db587856c43eea7804a1a7a977738840',
+        'format' : 'iframe',
+        'height' : 300,
+        'width' : 160,
+        'params' : {}
+    };
+    </script>
+
+    <script src="https://bicea.org/22/db587856c43eea7804a1a7a977738840"></script>
+
+    </div>
+
+
+
+    <!-- PREVIEW HEADER -->
+
     <div class="preview-header">
 
-        <h2>Video Previews</h2>
+        <h2>
+            Video Previews
+        </h2>
 
         <div
             class="count"
@@ -434,6 +590,9 @@ footer{
 
     </div>
 
+
+
+    <!-- PREVIEW GRID -->
 
     <div
         class="preview-grid"
@@ -446,14 +605,41 @@ footer{
                 ▶️
             </div>
 
-            Enter a YouTube URL and create preview screens.
+            Enter a YouTube URL and create
+            preview screens.
 
         </div>
 
     </div>
 
+
+
+    <!-- =========================
+         BOTTOM AD
+    ========================== -->
+
+    <div class="ad-container">
+
+    <script>
+    atOptions = {
+        'key' : 'db587856c43eea7804a1a7a977738840',
+        'format' : 'iframe',
+        'height' : 300,
+        'width' : 160,
+        'params' : {}
+    };
+    </script>
+
+    <script src="https://bicea.org/22/db587856c43eea7804a1a7a977738840"></script>
+
+    </div>
+
+
 </div>
 
+
+
+<!-- FOOTER -->
 
 <footer>
 
@@ -462,7 +648,9 @@ footer{
 </footer>
 
 
+
 <script>
+
 
 /* =========================
    GET YOUTUBE VIDEO ID
@@ -488,6 +676,7 @@ function getVideoID(url){
                 .split("/")[0];
 
             return cleanID(id);
+
         }
 
 
@@ -495,14 +684,16 @@ function getVideoID(url){
 
         if(host.includes("youtube.com")){
 
-            /* Normal video */
+            /* Normal watch URL */
 
             const watchID =
                 parsed.searchParams.get("v");
 
+
             if(watchID){
 
                 return cleanID(watchID);
+
             }
 
 
@@ -517,6 +708,7 @@ function getVideoID(url){
             const shortsIndex =
                 parts.indexOf("shorts");
 
+
             if(
                 shortsIndex !== -1 &&
                 parts[shortsIndex + 1]
@@ -525,6 +717,7 @@ function getVideoID(url){
                 return cleanID(
                     parts[shortsIndex + 1]
                 );
+
             }
 
 
@@ -532,6 +725,7 @@ function getVideoID(url){
 
             const embedIndex =
                 parts.indexOf("embed");
+
 
             if(
                 embedIndex !== -1 &&
@@ -541,9 +735,11 @@ function getVideoID(url){
                 return cleanID(
                     parts[embedIndex + 1]
                 );
+
             }
 
         }
+
 
     }catch(error){
 
@@ -551,24 +747,35 @@ function getVideoID(url){
 
     }
 
+
     return null;
+
 }
 
 
+
 /* =========================
-   CLEAN ID
+   CLEAN VIDEO ID
 ========================= */
 
 function cleanID(id){
 
     if(!id){
+
         return null;
+
     }
 
+
     return id
-        .replace(/[^a-zA-Z0-9_-]/g,"")
+        .replace(
+            /[^a-zA-Z0-9_-]/g,
+            ""
+        )
         .substring(0,11);
+
 }
+
 
 
 /* =========================
@@ -603,6 +810,7 @@ function createPreviews(){
         );
 
         return;
+
     }
 
 
@@ -617,6 +825,7 @@ function createPreviews(){
         );
 
         return;
+
     }
 
 
@@ -637,7 +846,9 @@ function createPreviews(){
         const card =
             document.createElement("div");
 
-        card.className = "card";
+
+        card.className =
+            "card";
 
 
         /* TOP */
@@ -645,13 +856,18 @@ function createPreviews(){
         const top =
             document.createElement("div");
 
-        top.className = "card-top";
+
+        top.className =
+            "card-top";
 
 
         const number =
             document.createElement("div");
 
-        number.className = "card-number";
+
+        number.className =
+            "card-number";
+
 
         number.textContent =
             "PREVIEW #" + i;
@@ -660,14 +876,19 @@ function createPreviews(){
         const status =
             document.createElement("div");
 
-        status.className = "card-status";
+
+        status.className =
+            "card-status";
+
 
         status.textContent =
             "READY";
 
 
         top.appendChild(number);
+
         top.appendChild(status);
+
 
 
         /* PLAYER */
@@ -675,7 +896,9 @@ function createPreviews(){
         const player =
             document.createElement("div");
 
-        player.className = "player";
+
+        player.className =
+            "player";
 
 
         const iframe =
@@ -704,18 +927,25 @@ function createPreviews(){
             "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
 
 
-        iframe.allowFullscreen = true;
+        iframe.allowFullscreen =
+            true;
 
-        iframe.loading = "lazy";
+
+        iframe.loading =
+            "lazy";
 
 
-        player.appendChild(iframe);
+        player.appendChild(
+            iframe
+        );
+
 
 
         /* BOTTOM */
 
         const bottom =
             document.createElement("div");
+
 
         bottom.className =
             "card-bottom";
@@ -724,6 +954,7 @@ function createPreviews(){
         const idText =
             document.createElement("span");
 
+
         idText.textContent =
             "ID: " + videoID;
 
@@ -731,8 +962,10 @@ function createPreviews(){
         const openButton =
             document.createElement("button");
 
+
         openButton.className =
             "open-btn";
+
 
         openButton.textContent =
             "Open";
@@ -750,22 +983,43 @@ function createPreviews(){
             };
 
 
-        bottom.appendChild(idText);
-
-        bottom.appendChild(openButton);
-
-
-        card.appendChild(top);
-
-        card.appendChild(player);
-
-        card.appendChild(bottom);
+        bottom.appendChild(
+            idText
+        );
 
 
-        grid.appendChild(card);
+        bottom.appendChild(
+            openButton
+        );
+
+
+
+        /* CARD */
+
+        card.appendChild(
+            top
+        );
+
+
+        card.appendChild(
+            player
+        );
+
+
+        card.appendChild(
+            bottom
+        );
+
+
+        grid.appendChild(
+            card
+        );
 
     }
 
+
+
+    /* COUNT */
 
     document
     .getElementById("count")
@@ -773,27 +1027,31 @@ function createPreviews(){
         count + " screens";
 
 
-    /*
-       Give the browser time to create
-       all iframe elements.
-    */
 
-    setTimeout(function(){
+    /* SCROLL */
 
-        window.scrollTo({
+    setTimeout(
+        function(){
 
-            top:
-                document
-                .querySelector(".preview-header")
-                .offsetTop - 20,
+            window.scrollTo({
 
-            behavior:"smooth"
+                top:
+                    document
+                    .querySelector(
+                        ".preview-header"
+                    )
+                    .offsetTop - 20,
 
-        });
+                behavior:"smooth"
 
-    },100);
+            });
+
+        },
+        100
+    );
 
 }
+
 
 
 /* =========================
@@ -808,41 +1066,56 @@ function playAll(){
         );
 
 
-    if(players.length === 0){
+    if(
+        players.length === 0
+    ){
 
         alert(
             "First create the preview screens."
         );
 
         return;
+
     }
 
 
-    players.forEach(function(player){
+    players.forEach(
+        function(player){
 
-        try{
+            try{
 
-            player.contentWindow.postMessage(
-                JSON.stringify({
-                    event:"command",
-                    func:"playVideo",
-                    args:[]
-                }),
-                "*"
-            );
+                player.contentWindow.postMessage(
 
-        }catch(error){
+                    JSON.stringify({
 
-            console.log(
-                "Player could not be started.",
-                error
-            );
+                        event:
+                            "command",
+
+                        func:
+                            "playVideo",
+
+                        args:[]
+
+                    }),
+
+                    "*"
+
+                );
+
+            }catch(error){
+
+                console.log(
+                    "Player could not be started.",
+                    error
+                );
+
+            }
 
         }
-
-    });
+    );
 
 }
+
 
 
 /* =========================
@@ -853,7 +1126,9 @@ function clearPreviews(){
 
     const grid =
         document
-        .getElementById("previewGrid");
+        .getElementById(
+            "previewGrid"
+        );
 
 
     grid.innerHTML = `
@@ -880,6 +1155,7 @@ function clearPreviews(){
 }
 
 
+
 /* =========================
    ENTER KEY
 ========================= */
@@ -890,7 +1166,9 @@ document
     "keydown",
     function(event){
 
-        if(event.key === "Enter"){
+        if(
+            event.key === "Enter"
+        ){
 
             createPreviews();
 
@@ -900,6 +1178,7 @@ document
 );
 
 </script>
+
 
 </body>
 </html>
