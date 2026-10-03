@@ -4,7 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>DealFinder - Flipkart Deals</title>
+<title>YouTube Video Analyzer - Free Tool</title>
+
+<meta name="description"
+content="Free YouTube video analyzer, watch time calculator and engagement calculator.">
 
 <style>
 
@@ -12,274 +15,345 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
 }
 
 body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#f5f5f5;
-    color:#222;
+    background:#080b12;
+    color:#fff;
+    min-height:100vh;
 }
 
 /* HEADER */
 
 header{
-    background:#ffffff;
-    height:65px;
+    background:#10141f;
+    border-bottom:1px solid #252b3a;
+    padding:18px 6%;
     display:flex;
-    align-items:center;
     justify-content:space-between;
-    padding:0 6%;
-    position:sticky;
-    top:0;
-    z-index:1000;
-    box-shadow:0 2px 10px rgba(0,0,0,.08);
+    align-items:center;
 }
 
 .logo{
-    font-size:24px;
+    font-size:23px;
     font-weight:bold;
 }
 
 .logo span{
-    color:#ff6b00;
-}
-
-nav{
-    display:flex;
-    gap:25px;
+    color:#ff0033;
 }
 
 nav a{
+    color:#aaa;
     text-decoration:none;
-    color:#333;
-    font-weight:600;
+    margin-left:25px;
+    font-size:14px;
 }
 
+nav a:hover{
+    color:#fff;
+}
 
 /* HERO */
 
 .hero{
-    background:linear-gradient(120deg,#fff1e6,#ffffff);
-    padding:55px 7%;
     text-align:center;
+    padding:75px 20px 60px;
+    background:
+    radial-gradient(
+        circle at top,
+        #252b42,
+        #080b12 65%
+    );
 }
 
 .hero h1{
-    font-size:45px;
+    font-size:46px;
+    line-height:1.2;
     margin-bottom:15px;
 }
 
+.hero h1 span{
+    color:#ff0033;
+}
+
 .hero p{
-    font-size:18px;
-    color:#666;
+    color:#aab0bf;
+    font-size:17px;
+    max-width:650px;
+    margin:auto;
 }
 
+/* TOOL */
 
-/* SEARCH */
-
-.search-area{
-    max-width:900px;
-    margin:-25px auto 30px;
-    padding:0 20px;
-    position:relative;
+.tool{
+    width:92%;
+    max-width:850px;
+    margin:-20px auto 50px;
+    background:#121722;
+    border:1px solid #292f3e;
+    border-radius:15px;
+    padding:25px;
+    box-shadow:0 15px 50px rgba(0,0,0,.35);
 }
 
-.search-box{
-    background:white;
-    padding:12px;
-    border-radius:10px;
-    display:flex;
-    box-shadow:0 5px 20px rgba(0,0,0,.12);
-}
-
-.search-box input{
-    flex:1;
-    border:none;
-    outline:none;
-    font-size:16px;
-    padding:10px;
-}
-
-.search-box button{
-    border:none;
-    background:#ff6b00;
-    color:white;
-    padding:10px 20px;
-    border-radius:7px;
-    cursor:pointer;
+.label{
+    display:block;
+    margin-bottom:9px;
+    color:#ddd;
     font-weight:bold;
 }
 
-
-/* FILTER */
-
-.filters{
-    max-width:1200px;
-    margin:auto;
-    padding:10px 20px 25px;
+.input-row{
     display:flex;
-    gap:12px;
-    flex-wrap:wrap;
+    gap:10px;
 }
 
-.filters select{
-    padding:10px 14px;
-    border:1px solid #ddd;
-    background:white;
-    border-radius:7px;
+.input-row input{
+    flex:1;
+    padding:15px;
+    border-radius:8px;
+    border:1px solid #343b4c;
+    background:#090c13;
+    color:white;
+    outline:none;
+    font-size:15px;
+}
+
+.input-row input:focus{
+    border-color:#ff0033;
+}
+
+.analyze{
+    padding:15px 22px;
+    border:0;
+    border-radius:8px;
+    background:#ff0033;
+    color:white;
+    font-weight:bold;
     cursor:pointer;
 }
 
-
-/* PRODUCTS */
-
-.container{
-    max-width:1200px;
-    margin:auto;
-    padding:0 20px 50px;
+.analyze:hover{
+    background:#d9002b;
 }
 
-.heading{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+/* OPTIONS */
+
+.options{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-top:20px;
+}
+
+.option{
+    background:#0b0f17;
+    border:1px solid #292f3e;
+    padding:15px;
+    border-radius:8px;
+}
+
+.option label{
+    color:#aaa;
+    display:block;
+    font-size:13px;
+    margin-bottom:7px;
+}
+
+.option input{
+    width:100%;
+    padding:11px;
+    background:#151a25;
+    border:1px solid #333b4d;
+    color:white;
+    border-radius:6px;
+}
+
+/* RESULTS */
+
+#results{
+    display:none;
+    width:92%;
+    max-width:1000px;
+    margin:0 auto 50px;
+}
+
+.video-card{
+    background:#121722;
+    border:1px solid #292f3e;
+    border-radius:14px;
+    padding:20px;
+    display:grid;
+    grid-template-columns:280px 1fr;
+    gap:25px;
+}
+
+.thumbnail{
+    width:100%;
+    aspect-ratio:16/9;
+    object-fit:cover;
+    border-radius:8px;
+}
+
+.video-info h2{
+    margin-bottom:12px;
+}
+
+.video-url{
+    color:#777;
+    word-break:break-all;
+    font-size:13px;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-top:20px;
+}
+
+.stat{
+    background:#0b0f17;
+    border:1px solid #292f3e;
+    padding:18px;
+    border-radius:10px;
+}
+
+.stat-title{
+    color:#888;
+    font-size:13px;
+    margin-bottom:7px;
+}
+
+.stat-value{
+    font-size:24px;
+    font-weight:bold;
+}
+
+/* CALCULATOR */
+
+.calculator{
+    margin-top:20px;
+    background:#121722;
+    border:1px solid #292f3e;
+    border-radius:14px;
+    padding:25px;
+}
+
+.calculator h2{
     margin-bottom:20px;
 }
 
-.heading h2{
-    font-size:27px;
+.calc-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
 }
 
+.calc-box{
+    background:#0b0f17;
+    padding:18px;
+    border-radius:8px;
+}
 
-.products{
+.calc-box p{
+    color:#888;
+    font-size:13px;
+    margin-bottom:7px;
+}
+
+.calc-box strong{
+    font-size:22px;
+    color:#00e5ff;
+}
+
+/* SEO */
+
+.features{
+    width:92%;
+    max-width:1100px;
+    margin:60px auto;
+}
+
+.features h2{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.feature-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+    grid-template-columns:repeat(3,1fr);
     gap:20px;
 }
 
-
-/* CARD */
-
-.card{
-    background:white;
+.feature{
+    background:#121722;
+    border:1px solid #292f3e;
     border-radius:12px;
-    overflow:hidden;
-    box-shadow:0 3px 12px rgba(0,0,0,.08);
-    transition:.25s;
+    padding:25px;
 }
 
-.card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 8px 25px rgba(0,0,0,.15);
+.feature-icon{
+    font-size:30px;
+    margin-bottom:15px;
 }
 
-
-.image-box{
-    height:220px;
-    position:relative;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:white;
+.feature h3{
+    margin-bottom:10px;
 }
 
-.image-box img{
-    width:100%;
-    height:100%;
-    object-fit:contain;
-    padding:15px;
+.feature p{
+    color:#999;
+    line-height:1.6;
 }
 
+/* LOADING */
 
-.discount{
-    position:absolute;
-    top:10px;
-    left:10px;
-    background:#e53935;
-    color:white;
-    padding:6px 9px;
-    border-radius:5px;
-    font-size:13px;
-    font-weight:bold;
-    z-index:2;
-}
-
-
-.card-body{
-    padding:15px;
-}
-
-.title{
-    font-size:16px;
-    font-weight:bold;
-    line-height:1.4;
-    height:45px;
-    overflow:hidden;
-}
-
-.category{
-    color:#777;
-    font-size:13px;
-    margin:8px 0;
-}
-
-.price{
-    font-size:22px;
-    font-weight:bold;
-    margin-top:8px;
-}
-
-.mrp{
-    font-size:14px;
-    color:#888;
-    text-decoration:line-through;
-    margin-left:5px;
-}
-
-.deal-btn{
-    display:block;
+.loading{
+    display:none;
     text-align:center;
-    background:#ff6b00;
-    color:white;
-    text-decoration:none;
-    padding:11px;
-    border-radius:7px;
-    margin-top:15px;
-    font-weight:bold;
+    padding:20px;
+    color:#aaa;
 }
 
-.deal-btn:hover{
-    background:#e85d00;
+.spinner{
+    width:30px;
+    height:30px;
+    border:3px solid #333;
+    border-top-color:#ff0033;
+    border-radius:50%;
+    animation:spin 1s linear infinite;
+    margin:0 auto 10px;
 }
 
-
-/* EMPTY */
-
-.empty{
-    grid-column:1/-1;
-    text-align:center;
-    padding:60px 20px;
-    color:#777;
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
+    }
 }
-
 
 /* FOOTER */
 
 footer{
-    background:#222;
-    color:white;
+    background:#10141f;
+    border-top:1px solid #252b3a;
+    padding:35px;
     text-align:center;
-    padding:30px;
-    line-height:2;
+    color:#777;
 }
 
+footer strong{
+    color:#ff0033;
+}
 
 /* MOBILE */
 
-@media(max-width:600px){
+@media(max-width:700px){
 
     header{
-        padding:0 15px;
+        padding:15px 20px;
     }
 
     nav{
@@ -287,38 +361,37 @@ footer{
     }
 
     .hero{
-        padding:40px 20px;
+        padding:55px 20px;
     }
 
     .hero h1{
-        font-size:32px;
+        font-size:34px;
     }
 
-    .products{
-        grid-template-columns:repeat(2,1fr);
-        gap:10px;
+    .input-row{
+        flex-direction:column;
     }
 
-    .image-box{
-        height:160px;
+    .options{
+        grid-template-columns:1fr;
     }
 
-    .card-body{
-        padding:10px;
+    .video-card{
+        grid-template-columns:1fr;
     }
 
-    .title{
-        font-size:14px;
+    .stats{
+        grid-template-columns:1fr;
     }
 
-    .price{
-        font-size:18px;
+    .calc-grid{
+        grid-template-columns:1fr;
     }
 
-    .deal-btn{
-        font-size:13px;
-        padding:9px;
+    .feature-grid{
+        grid-template-columns:1fr;
     }
+
 }
 
 </style>
@@ -333,458 +406,653 @@ footer{
 <header>
 
     <div class="logo">
-        🔥 Deal<span>Finder</span>
+        ▶ <span>YouTube</span> Tools
     </div>
 
     <nav>
-        <a href="#">Home</a>
-        <a href="#deals">Deals</a>
-        <a href="#electronics">Electronics</a>
-        <a href="#fashion">Fashion</a>
+        <a href="#tool">Analyzer</a>
+        <a href="#features">Features</a>
+        <a href="#about">About</a>
     </nav>
 
 </header>
-
 
 
 <!-- HERO -->
 
 <section class="hero">
 
-    <h1>🔥 Today's Best Deals</h1>
+    <h1>
+        YouTube Video
+        <span>Analyzer</span>
+    </h1>
 
     <p>
-        Find the latest discounts and offers in one place.
+        Analyze your YouTube video, calculate estimated
+        watch time and check basic engagement metrics.
     </p>
 
 </section>
 
 
+<!-- TOOL -->
 
-<!-- SEARCH -->
+<section class="tool" id="tool">
 
-<div class="search-area">
+    <label class="label">
+        Enter YouTube Video URL
+    </label>
 
-    <div class="search-box">
+    <div class="input-row">
 
         <input
             type="text"
-            id="search"
-            placeholder="Search products..."
+            id="youtubeURL"
+            placeholder="https://www.youtube.com/watch?v=..."
         >
 
-        <button onclick="searchProducts()">
-            Search
+        <button
+            class="analyze"
+            onclick="analyzeVideo()">
+            Analyze Video
         </button>
 
     </div>
 
-</div>
+
+    <div class="options">
+
+        <div class="option">
+
+            <label>
+                Current Views
+            </label>
+
+            <input
+                type="number"
+                id="views"
+                value="1000"
+                min="0"
+            >
+
+        </div>
 
 
+        <div class="option">
 
-<!-- FILTER -->
+            <label>
+                Video Length (minutes)
+            </label>
 
-<div class="filters">
+            <input
+                type="number"
+                id="duration"
+                value="5"
+                min="0"
+                step="0.1"
+            >
 
-    <select id="category">
-
-        <option value="all">
-            All Categories
-        </option>
-
-        <option value="Electronics">
-            Electronics
-        </option>
-
-        <option value="Fashion">
-            Fashion
-        </option>
-
-        <option value="Home">
-            Home
-        </option>
-
-        <option value="Beauty">
-            Beauty
-        </option>
-
-    </select>
+        </div>
 
 
-    <select id="discount">
+        <div class="option">
 
-        <option value="0">
-            Any Discount
-        </option>
+            <label>
+                Average Watch %
+            </label>
 
-        <option value="30">
-            30%+ OFF
-        </option>
+            <input
+                type="number"
+                id="watchPercent"
+                value="50"
+                min="1"
+                max="100"
+            >
 
-        <option value="50">
-            50%+ OFF
-        </option>
-
-        <option value="70">
-            70%+ OFF
-        </option>
-
-    </select>
-
-</div>
-
-
-
-<!-- PRODUCTS -->
-
-<main class="container" id="deals">
-
-    <div class="heading">
-
-        <h2>
-            🔥 Latest Deals
-        </h2>
-
-        <span id="count"></span>
+        </div>
 
     </div>
 
 
-    <div
-        class="products"
-        id="products"
-    ></div>
+    <div class="loading" id="loading">
 
-</main>
+        <div class="spinner"></div>
 
+        Analyzing video...
+
+    </div>
+
+</section>
+
+
+<!-- RESULTS -->
+
+<section id="results">
+
+    <div class="video-card">
+
+        <img
+            id="thumbnail"
+            class="thumbnail"
+            src=""
+            alt="YouTube Thumbnail"
+        >
+
+
+        <div class="video-info">
+
+            <h2 id="videoTitle">
+                YouTube Video
+            </h2>
+
+            <div
+                class="video-url"
+                id="videoURL">
+            </div>
+
+
+            <div class="stats">
+
+                <div class="stat">
+
+                    <div class="stat-title">
+                        Current Views
+                    </div>
+
+                    <div
+                        class="stat-value"
+                        id="resultViews">
+                        0
+                    </div>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <div class="stat-title">
+                        Estimated Watch Time
+                    </div>
+
+                    <div
+                        class="stat-value"
+                        id="resultWatch">
+                        0
+                    </div>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <div class="stat-title">
+                        Average Watch
+                    </div>
+
+                    <div
+                        class="stat-value"
+                        id="resultPercent">
+                        0%
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- CALCULATOR -->
+
+    <div class="calculator">
+
+        <h2>
+            ⏱ Watch Time Calculator
+        </h2>
+
+
+        <div class="calc-grid">
+
+            <div class="calc-box">
+
+                <p>
+                    Video Duration
+                </p>
+
+                <strong id="calcDuration">
+                    0 min
+                </strong>
+
+            </div>
+
+
+            <div class="calc-box">
+
+                <p>
+                    Estimated Views
+                </p>
+
+                <strong id="calcViews">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="calc-box">
+
+                <p>
+                    Estimated Watch Hours
+                </p>
+
+                <strong id="calcHours">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FEATURES -->
+
+<section class="features" id="features">
+
+    <h2>
+        🛠️ Free YouTube Tools
+    </h2>
+
+
+    <div class="feature-grid">
+
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                📊
+            </div>
+
+            <h3>
+                Video Analyzer
+            </h3>
+
+            <p>
+                Enter your video URL and calculate
+                basic video statistics.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                ⏱️
+            </div>
+
+            <h3>
+                Watch Time Calculator
+            </h3>
+
+            <p>
+                Estimate total watch hours from
+                views, duration and average retention.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                🔍
+            </div>
+
+            <h3>
+                YouTube SEO
+            </h3>
+
+            <p>
+                Use your video information to improve
+                titles, descriptions and keywords.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
 
 
 <!-- FOOTER -->
 
-<footer>
+<footer id="about">
 
-    <strong>DealFinder</strong>
-
-    <br>
-
-    Find deals. Compare prices. Save money.
+    <p>
+        © 2026 <strong>YouTube Tools</strong>
+    </p>
 
     <br>
 
-    Product details and purchases are completed on the respective shopping website.
+    <p>
+        This website provides calculations and analysis tools.
+        It does not generate artificial YouTube views or watch time.
+    </p>
 
 </footer>
 
 
-
 <script>
 
-/*
-=================================================
-PRODUCT DATA
-=================================================
 
-YAHAN PRODUCTS ADD KARO.
+/* ==========================================
+   GET YOUTUBE VIDEO ID
+========================================== */
 
-IMPORTANT:
-url mein actual Flipkart product URL डालना.
+function getVideoID(url){
 
-=================================================
-*/
+    try{
 
+        const parsed =
+            new URL(url);
 
-const products = [
+        /* youtube.com/watch?v= */
 
-    {
-        title:"Example Wireless Headphones",
-        category:"Electronics",
-        price:999,
-        mrp:2499,
-        discount:60,
-        image:"https://via.placeholder.com/400x400?text=Headphones",
-        url:"https://www.flipkart.com/"
-    },
+        if(
+            parsed.hostname.includes("youtube.com") &&
+            parsed.searchParams.get("v")
+        ){
+
+            return parsed.searchParams.get("v");
+
+        }
 
 
-    {
-        title:"Example Smart Watch",
-        category:"Electronics",
-        price:1299,
-        mrp:3999,
-        discount:68,
-        image:"https://via.placeholder.com/400x400?text=Smart+Watch",
-        url:"https://www.flipkart.com/"
-    },
+        /* youtu.be */
+
+        if(
+            parsed.hostname.includes("youtu.be")
+        ){
+
+            return parsed.pathname
+                .replace("/","");
+
+        }
 
 
-    {
-        title:"Men Casual T-Shirt",
-        category:"Fashion",
-        price:499,
-        mrp:1299,
-        discount:62,
-        image:"https://via.placeholder.com/400x400?text=T-Shirt",
-        url:"https://www.flipkart.com/"
-    },
+        /* youtube.com/shorts/ */
 
+        if(
+            parsed.pathname.startsWith("/shorts/")
+        ){
 
-    {
-        title:"Home Decorative Lamp",
-        category:"Home",
-        price:699,
-        mrp:1599,
-        discount:56,
-        image:"https://via.placeholder.com/400x400?text=Lamp",
-        url:"https://www.flipkart.com/"
-    },
+            return parsed.pathname
+                .split("/")[2];
 
+        }
 
-    {
-        title:"Beauty Skin Care Kit",
-        category:"Beauty",
-        price:799,
-        mrp:1999,
-        discount:60,
-        image:"https://via.placeholder.com/400x400?text=Beauty",
-        url:"https://www.flipkart.com/"
     }
 
-];
+    catch(error){
+
+        return null;
+
+    }
+
+    return null;
+
+}
 
 
+/* ==========================================
+   ANALYZE
+========================================== */
 
-/*
-=================================================
-DISPLAY PRODUCTS
-=================================================
-*/
+function analyzeVideo(){
 
-
-function displayProducts(list){
-
-    const container =
-        document.getElementById("products");
-
-    container.innerHTML="";
+    const url =
+        document
+        .getElementById("youtubeURL")
+        .value
+        .trim();
 
 
-    document.getElementById("count").innerText =
-        list.length + " deals";
+    const videoID =
+        getVideoID(url);
 
 
-    if(list.length === 0){
+    if(!videoID){
 
-        container.innerHTML = `
-
-            <div class="empty">
-
-                😔
-
-                <h3>
-                    No deals found
-                </h3>
-
-                <p>
-                    Try another search or category.
-                </p>
-
-            </div>
-
-        `;
+        alert(
+            "Please enter a valid YouTube video URL."
+        );
 
         return;
 
     }
 
 
-    list.forEach(product => {
-
-        const card =
-            document.createElement("div");
-
-        card.className="card";
-
-
-        card.innerHTML = `
-
-            <div class="image-box">
-
-                <span class="discount">
-
-                    ${product.discount}% OFF
-
-                </span>
-
-
-                <img
-                    src="${product.image}"
-                    alt="${product.title}"
-                    loading="lazy"
-                >
-
-            </div>
-
-
-            <div class="card-body">
-
-                <div class="title">
-
-                    ${product.title}
-
-                </div>
-
-
-                <div class="category">
-
-                    ${product.category}
-
-                </div>
-
-
-                <div class="price">
-
-                    ₹${product.price.toLocaleString("en-IN")}
-
-                    <span class="mrp">
-
-                        ₹${product.mrp.toLocaleString("en-IN")}
-
-                    </span>
-
-                </div>
-
-
-                <a
-                    href="${product.url}"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="deal-btn"
-                >
-
-                    View Deal →
-
-                </a>
-
-            </div>
-
-        `;
-
-
-        container.appendChild(card);
-
-    });
-
-}
-
-
-
-/*
-=================================================
-FILTER
-=================================================
-*/
-
-
-function filterProducts(){
-
-    const category =
-        document.getElementById("category").value;
-
-
-    const discount =
+    const views =
         Number(
-            document.getElementById("discount").value
+            document
+            .getElementById("views")
+            .value
         );
 
 
-    const search =
-        document
-        .getElementById("search")
-        .value
-        .toLowerCase();
+    const duration =
+        Number(
+            document
+            .getElementById("duration")
+            .value
+        );
 
 
-    const filtered =
-        products.filter(product => {
+    const watchPercent =
+        Number(
+            document
+            .getElementById("watchPercent")
+            .value
+        );
 
 
-            const categoryMatch =
-                category === "all" ||
-                product.category === category;
+    if(
+        views < 0 ||
+        duration <= 0 ||
+        watchPercent <= 0
+    ){
+
+        alert(
+            "Please enter valid values."
+        );
+
+        return;
+
+    }
 
 
-            const discountMatch =
-                product.discount >= discount;
-
-
-            const searchMatch =
-                product.title
-                .toLowerCase()
-                .includes(search);
-
-
-            return(
-                categoryMatch &&
-                discountMatch &&
-                searchMatch
-            );
-
-        });
-
-
-    displayProducts(filtered);
-
-}
-
-
-
-document
-    .getElementById("category")
-    .addEventListener(
-        "change",
-        filterProducts
-    );
-
-
-document
-    .getElementById("discount")
-    .addEventListener(
-        "change",
-        filterProducts
-    );
-
-
-document
-    .getElementById("search")
-    .addEventListener(
-        "input",
-        filterProducts
-    );
-
-
-
-function searchProducts(){
-
-    filterProducts();
+    /* Loading */
 
     document
-        .getElementById("deals")
-        .scrollIntoView({
-            behavior:"smooth"
-        });
+        .getElementById("loading")
+        .style.display = "block";
+
+
+    document
+        .getElementById("results")
+        .style.display = "none";
+
+
+    setTimeout(function(){
+
+        /* Thumbnail */
+
+        document
+            .getElementById("thumbnail")
+            .src =
+            "https://img.youtube.com/vi/"
+            + videoID
+            + "/maxresdefault.jpg";
+
+
+        /* Title */
+
+        document
+            .getElementById("videoTitle")
+            .innerText =
+            "YouTube Video • "
+            + videoID;
+
+
+        /* URL */
+
+        document
+            .getElementById("videoURL")
+            .innerText =
+            url;
+
+
+        /* Watch time */
+
+        const watchMinutes =
+            duration *
+            (watchPercent / 100);
+
+
+        const totalMinutes =
+            views *
+            watchMinutes;
+
+
+        const totalHours =
+            totalMinutes / 60;
+
+
+        /* Results */
+
+        document
+            .getElementById("resultViews")
+            .innerText =
+            formatNumber(views);
+
+
+        document
+            .getElementById("resultWatch")
+            .innerText =
+            formatHours(totalHours);
+
+
+        document
+            .getElementById("resultPercent")
+            .innerText =
+            watchPercent + "%";
+
+
+        document
+            .getElementById("calcDuration")
+            .innerText =
+            duration + " min";
+
+
+        document
+            .getElementById("calcViews")
+            .innerText =
+            formatNumber(views);
+
+
+        document
+            .getElementById("calcHours")
+            .innerText =
+            formatHours(totalHours);
+
+
+        /* Show */
+
+        document
+            .getElementById("loading")
+            .style.display = "none";
+
+
+        document
+            .getElementById("results")
+            .style.display = "block";
+
+
+        document
+            .getElementById("results")
+            .scrollIntoView({
+                behavior:"smooth"
+            });
+
+
+    },800);
 
 }
 
 
+/* ==========================================
+   NUMBER FORMAT
+========================================== */
 
-/*
-=================================================
-START
-=================================================
-*/
+function formatNumber(number){
 
-displayProducts(products);
+    return new Intl.NumberFormat(
+        "en-IN"
+    ).format(number);
+
+}
+
+
+/* ==========================================
+   HOURS FORMAT
+========================================== */
+
+function formatHours(hours){
+
+    if(hours < 1){
+
+        return hours.toFixed(2)
+            + " hours";
+
+    }
+
+
+    return hours.toLocaleString(
+        "en-IN",
+        {
+            maximumFractionDigits:2
+        }
+    )
+    + " hours";
+
+}
+
+
+/* ==========================================
+   ENTER KEY
+========================================== */
+
+document
+.getElementById("youtubeURL")
+.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Enter"){
+
+            analyzeVideo();
+
+        }
+
+    }
+);
 
 </script>
 
