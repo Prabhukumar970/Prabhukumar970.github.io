@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
+
+<meta name="google-site-verification" content="Vy_gipHf8e6QjTD3jCl3b0vv_U_thYYHGriUaLfAREM" />
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Deal Bazar - Best Deals & Offers</title>
+<title>DealBazar - Best Deals & Offers</title>
 
 <meta name="description"
-content="Find the latest deals, discounts and offers from popular online stores.">
+content="DealBazar par Amazon aur Flipkart ke latest deals, discounts aur offers ek jagah dekhein.">
+
+<meta name="keywords"
+content="deals, offers, discounts, Amazon deals, Flipkart deals, best deals India">
 
 <style>
 
@@ -26,8 +33,6 @@ body{
   background:#f5f6f8;
   color:#1f2937;
 }
-
-/* HEADER */
 
 header{
   background:#111827;
@@ -79,8 +84,6 @@ header{
   top:11px;
 }
 
-/* HERO */
-
 .hero{
   background:linear-gradient(135deg,#111827,#374151);
   color:white;
@@ -113,8 +116,6 @@ header{
   font-weight:bold;
 }
 
-/* CONTAINER */
-
 .container{
   max-width:1200px;
   margin:auto;
@@ -125,8 +126,6 @@ header{
   font-size:26px;
   margin-bottom:20px;
 }
-
-/* CATEGORIES */
 
 .categories{
   display:flex;
@@ -150,8 +149,6 @@ header{
   background:#111827;
   color:white;
 }
-
-/* PRODUCTS */
 
 .products{
   display:grid;
@@ -241,16 +238,12 @@ header{
   color:white;
 }
 
-/* EMPTY */
-
 .empty{
   display:none;
   text-align:center;
   padding:50px;
   color:#6b7280;
 }
-
-/* FOOTER */
 
 footer{
   background:#111827;
@@ -274,8 +267,6 @@ footer p{
   color:#9ca3af;
   font-size:12px;
 }
-
-/* MOBILE */
 
 @media(max-width:900px){
 
@@ -329,13 +320,10 @@ footer p{
 }
 
 </style>
+
 </head>
 
-
 <body>
-
-
-<!-- HEADER -->
 
 <header>
 
@@ -362,9 +350,6 @@ footer p{
 </header>
 
 
-
-<!-- HERO -->
-
 <section class="hero">
 
   <h1>
@@ -385,13 +370,7 @@ footer p{
 </section>
 
 
-
-<!-- MAIN -->
-
 <main class="container">
-
-
-  <!-- CATEGORIES -->
 
   <h2 class="section-title">
     Categories
@@ -399,53 +378,32 @@ footer p{
 
   <div class="categories">
 
-    <button
-      class="category active"
-      data-category="All"
-    >
+    <button class="category active" data-category="All">
       All
     </button>
 
-    <button
-      class="category"
-      data-category="Mobiles"
-    >
+    <button class="category" data-category="Mobiles">
       📱 Mobiles
     </button>
 
-    <button
-      class="category"
-      data-category="Electronics"
-    >
+    <button class="category" data-category="Electronics">
       💻 Electronics
     </button>
 
-    <button
-      class="category"
-      data-category="Fashion"
-    >
+    <button class="category" data-category="Fashion">
       👕 Fashion
     </button>
 
-    <button
-      class="category"
-      data-category="Home"
-    >
+    <button class="category" data-category="Home">
       🏠 Home
     </button>
 
-    <button
-      class="category"
-      data-category="Beauty"
-    >
+    <button class="category" data-category="Beauty">
       💄 Beauty
     </button>
 
   </div>
 
-
-
-  <!-- DEALS -->
 
   <section id="deals" style="margin-top:40px;">
 
@@ -453,15 +411,9 @@ footer p{
       🔥 Today's Deals
     </h2>
 
-    <div
-      id="products"
-      class="products"
-    ></div>
+    <div id="products" class="products"></div>
 
-    <div
-      id="empty"
-      class="empty"
-    >
+    <div id="empty" class="empty">
 
       <h3>
         😕 No products found
@@ -475,18 +427,12 @@ footer p{
 
   </section>
 
-
 </main>
 
 
-
-<!-- FOOTER -->
-
 <footer>
 
-  <h2>
-    DealBazar
-  </h2>
+  <h2>DealBazar</h2>
 
   <p>
     Find the latest deals and discounts from online stores.
@@ -503,27 +449,9 @@ footer p{
 </footer>
 
 
-
 <script>
 
-
-/*
-================================================
-DEMO PRODUCTS
-================================================
-
-IMPORTANT:
-
-Ye abhi DEMO products hain.
-
-Baad mein inko Amazon/Flipkart
-affiliate/API data se replace karenge.
-================================================
-*/
-
-
 const products = [
-
 
   {
     name:"Samsung Galaxy Smartphone",
@@ -536,7 +464,6 @@ const products = [
     url:"https://www.amazon.in/"
   },
 
-
   {
     name:"Wireless Bluetooth Headphones",
     category:"Electronics",
@@ -547,7 +474,6 @@ const products = [
     image:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=700",
     url:"https://www.flipkart.com/"
   },
-
 
   {
     name:"Smart Watch",
@@ -560,7 +486,6 @@ const products = [
     url:"https://www.amazon.in/"
   },
 
-
   {
     name:"Men's Casual Sneakers",
     category:"Fashion",
@@ -571,7 +496,6 @@ const products = [
     image:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=700",
     url:"https://www.flipkart.com/"
   },
-
 
   {
     name:"Modern Home Lamp",
@@ -584,7 +508,6 @@ const products = [
     url:"https://www.amazon.in/"
   },
 
-
   {
     name:"Premium Beauty Product",
     category:"Beauty",
@@ -595,7 +518,6 @@ const products = [
     image:"https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=700",
     url:"https://www.amazon.in/"
   },
-
 
   {
     name:"Laptop for Students",
@@ -608,7 +530,6 @@ const products = [
     url:"https://www.flipkart.com/"
   },
 
-
   {
     name:"Stylish Backpack",
     category:"Fashion",
@@ -620,7 +541,6 @@ const products = [
     url:"https://www.amazon.in/"
   },
 
-
   {
     name:"Wireless Keyboard",
     category:"Electronics",
@@ -631,7 +551,6 @@ const products = [
     image:"https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=700",
     url:"https://www.amazon.in/"
   },
-
 
   {
     name:"Running Shoes",
@@ -647,7 +566,6 @@ const products = [
 ];
 
 
-
 const productContainer =
 document.getElementById("products");
 
@@ -657,83 +575,51 @@ document.getElementById("search");
 const empty =
 document.getElementById("empty");
 
-
 let selectedCategory="All";
-
-
-
-/*
-===========================================
-DISPLAY PRODUCTS
-===========================================
-*/
 
 
 function displayProducts(){
 
-
   const search =
-  searchInput.value
-  .toLowerCase()
-  .trim();
-
+  searchInput.value.toLowerCase().trim();
 
   const filtered =
   products.filter(product=>{
-
 
     const categoryMatch =
     selectedCategory==="All" ||
     product.category===selectedCategory;
 
-
     const searchMatch =
-    product.name
-    .toLowerCase()
-    .includes(search);
-
+    product.name.toLowerCase().includes(search);
 
     return categoryMatch && searchMatch;
 
   });
 
-
-
   productContainer.innerHTML="";
-
-
 
   if(filtered.length===0){
 
     empty.style.display="block";
-
     return;
 
   }
 
-
   empty.style.display="none";
 
-
-
   filtered.forEach(product=>{
-
 
     const card =
     document.createElement("div");
 
-
     card.className="product";
 
-
-
     card.innerHTML=`
-
 
       <div class="discount">
         ${product.discount}% OFF
       </div>
-
 
       <img
         class="product-img"
@@ -742,19 +628,15 @@ function displayProducts(){
         loading="lazy"
       >
 
-
       <div class="product-info">
-
 
         <div class="store">
           ${product.store}
         </div>
 
-
         <div class="product-name">
           ${product.name}
         </div>
-
 
         <div>
 
@@ -768,7 +650,6 @@ function displayProducts(){
 
         </div>
 
-
         <a
           class="deal"
           href="${product.url}"
@@ -778,11 +659,9 @@ function displayProducts(){
           View Deal →
         </a>
 
-
       </div>
 
     `;
-
 
     productContainer.appendChild(card);
 
@@ -791,35 +670,17 @@ function displayProducts(){
 }
 
 
-
-/*
-===========================================
-SEARCH
-===========================================
-*/
-
-
 searchInput.addEventListener(
   "input",
   displayProducts
 );
 
 
-
-/*
-===========================================
-CATEGORY FILTER
-===========================================
-*/
-
-
 document
 .querySelectorAll(".category")
 .forEach(button=>{
 
-
   button.addEventListener("click",()=>{
-
 
     document
     .querySelectorAll(".category")
@@ -827,13 +688,10 @@ document
       btn.classList.remove("active");
     });
 
-
     button.classList.add("active");
-
 
     selectedCategory =
     button.dataset.category;
-
 
     displayProducts();
 
@@ -842,19 +700,9 @@ document
 });
 
 
-
-/*
-===========================================
-START WEBSITE
-===========================================
-*/
-
-
 displayProducts();
 
-
 </script>
-
 
 </body>
 </html>
