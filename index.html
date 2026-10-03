@@ -4,105 +4,145 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>YouTube Video Analyzer - Free Tool</title>
+<title>Free YouTube Watch Time Calculator & Video Analyzer</title>
 
-<meta name="description"
-content="Free YouTube video analyzer, watch time calculator and engagement calculator.">
+<meta name="description" content="Free YouTube watch time calculator, video analyzer and SEO tool. Calculate estimated watch hours, analyze your video and improve your YouTube content.">
+
+<meta name="keywords" content="YouTube watch time calculator, YouTube video analyzer, YouTube SEO tool, watch hours calculator, YouTube views calculator">
+
+<meta name="theme-color" content="#0b0b0f">
 
 <style>
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial,Helvetica,sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-    background:#080b12;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#08080c;
     color:#fff;
-    min-height:100vh;
+    line-height:1.6;
 }
 
-/* HEADER */
+a{
+    color:inherit;
+    text-decoration:none;
+}
 
-header{
-    background:#10141f;
-    border-bottom:1px solid #252b3a;
-    padding:18px 6%;
+.container{
+    width:92%;
+    max-width:1150px;
+    margin:auto;
+}
+
+/* NAVBAR */
+
+.navbar{
+    height:70px;
+    border-bottom:1px solid #24242c;
+    background:rgba(8,8,12,.95);
+    display:flex;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.nav-inner{
     display:flex;
     justify-content:space-between;
     align-items:center;
 }
 
 .logo{
-    font-size:23px;
-    font-weight:bold;
+    font-size:22px;
+    font-weight:800;
 }
 
 .logo span{
-    color:#ff0033;
+    color:#ff3030;
 }
 
-nav a{
-    color:#aaa;
-    text-decoration:none;
-    margin-left:25px;
+.nav-links{
+    display:flex;
+    gap:28px;
+    color:#bbb;
     font-size:14px;
 }
 
-nav a:hover{
+.nav-links a:hover{
     color:#fff;
 }
 
 /* HERO */
 
 .hero{
+    padding:80px 0 65px;
     text-align:center;
-    padding:75px 20px 60px;
     background:
-    radial-gradient(
-        circle at top,
-        #252b42,
-        #080b12 65%
-    );
+    radial-gradient(circle at top,#2a1015 0,#08080c 42%);
+}
+
+.badge{
+    display:inline-block;
+    background:#17171e;
+    border:1px solid #30303a;
+    padding:7px 15px;
+    border-radius:30px;
+    font-size:13px;
+    color:#bbb;
+    margin-bottom:20px;
+}
+
+.badge span{
+    color:#ff3b3b;
 }
 
 .hero h1{
-    font-size:46px;
-    line-height:1.2;
-    margin-bottom:15px;
+    font-size:48px;
+    line-height:1.15;
+    max-width:850px;
+    margin:0 auto 20px;
 }
 
 .hero h1 span{
-    color:#ff0033;
+    color:#ff3333;
 }
 
 .hero p{
-    color:#aab0bf;
-    font-size:17px;
-    max-width:650px;
+    max-width:720px;
     margin:auto;
+    color:#a8a8b0;
+    font-size:17px;
 }
 
 /* TOOL */
 
-.tool{
-    width:92%;
-    max-width:850px;
-    margin:-20px auto 50px;
-    background:#121722;
-    border:1px solid #292f3e;
-    border-radius:15px;
-    padding:25px;
-    box-shadow:0 15px 50px rgba(0,0,0,.35);
+.tool-section{
+    margin-top:-5px;
 }
 
-.label{
+.tool-box{
+    max-width:900px;
+    margin:auto;
+    background:#111117;
+    border:1px solid #292932;
+    border-radius:18px;
+    padding:30px;
+    box-shadow:0 20px 70px rgba(0,0,0,.35);
+}
+
+.input-label{
     display:block;
     margin-bottom:9px;
     color:#ddd;
-    font-weight:bold;
+    font-weight:600;
 }
 
 .input-row{
@@ -110,203 +150,58 @@ nav a:hover{
     gap:10px;
 }
 
-.input-row input{
-    flex:1;
+input,
+select{
+    width:100%;
+    background:#08080c;
+    border:1px solid #35353f;
+    color:#fff;
     padding:15px;
-    border-radius:8px;
-    border:1px solid #343b4c;
-    background:#090c13;
-    color:white;
+    border-radius:10px;
     outline:none;
     font-size:15px;
 }
 
-.input-row input:focus{
-    border-color:#ff0033;
+input:focus,
+select:focus{
+    border-color:#ff3030;
 }
 
-.analyze{
-    padding:15px 22px;
-    border:0;
-    border-radius:8px;
-    background:#ff0033;
+.primary-btn{
+    border:none;
+    background:#ff3030;
     color:white;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-.analyze:hover{
-    background:#d9002b;
-}
-
-/* OPTIONS */
-
-.options{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:15px;
-    margin-top:20px;
-}
-
-.option{
-    background:#0b0f17;
-    border:1px solid #292f3e;
-    padding:15px;
-    border-radius:8px;
-}
-
-.option label{
-    color:#aaa;
-    display:block;
-    font-size:13px;
-    margin-bottom:7px;
-}
-
-.option input{
-    width:100%;
-    padding:11px;
-    background:#151a25;
-    border:1px solid #333b4d;
-    color:white;
-    border-radius:6px;
-}
-
-/* RESULTS */
-
-#results{
-    display:none;
-    width:92%;
-    max-width:1000px;
-    margin:0 auto 50px;
-}
-
-.video-card{
-    background:#121722;
-    border:1px solid #292f3e;
-    border-radius:14px;
-    padding:20px;
-    display:grid;
-    grid-template-columns:280px 1fr;
-    gap:25px;
-}
-
-.thumbnail{
-    width:100%;
-    aspect-ratio:16/9;
-    object-fit:cover;
-    border-radius:8px;
-}
-
-.video-info h2{
-    margin-bottom:12px;
-}
-
-.video-url{
-    color:#777;
-    word-break:break-all;
-    font-size:13px;
-}
-
-.stats{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:15px;
-    margin-top:20px;
-}
-
-.stat{
-    background:#0b0f17;
-    border:1px solid #292f3e;
-    padding:18px;
+    padding:0 28px;
     border-radius:10px;
+    font-weight:700;
+    cursor:pointer;
+    font-size:15px;
+    white-space:nowrap;
 }
 
-.stat-title{
-    color:#888;
-    font-size:13px;
-    margin-bottom:7px;
+.primary-btn:hover{
+    background:#e32323;
 }
 
-.stat-value{
-    font-size:24px;
-    font-weight:bold;
+.helper{
+    color:#777780;
+    font-size:12px;
+    margin-top:9px;
 }
 
-/* CALCULATOR */
+/* EXTRA INPUTS */
 
-.calculator{
-    margin-top:20px;
-    background:#121722;
-    border:1px solid #292f3e;
-    border-radius:14px;
-    padding:25px;
-}
-
-.calculator h2{
-    margin-bottom:20px;
-}
-
-.calc-grid{
+.input-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:15px;
+    margin-top:22px;
 }
 
-.calc-box{
-    background:#0b0f17;
-    padding:18px;
-    border-radius:8px;
-}
-
-.calc-box p{
-    color:#888;
-    font-size:13px;
-    margin-bottom:7px;
-}
-
-.calc-box strong{
-    font-size:22px;
-    color:#00e5ff;
-}
-
-/* SEO */
-
-.features{
-    width:92%;
-    max-width:1100px;
-    margin:60px auto;
-}
-
-.features h2{
-    text-align:center;
-    margin-bottom:30px;
-}
-
-.feature-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
-
-.feature{
-    background:#121722;
-    border:1px solid #292f3e;
-    border-radius:12px;
-    padding:25px;
-}
-
-.feature-icon{
-    font-size:30px;
-    margin-bottom:15px;
-}
-
-.feature h3{
-    margin-bottom:10px;
-}
-
-.feature p{
-    color:#999;
-    line-height:1.6;
+.field small{
+    display:block;
+    color:#777;
+    margin-top:7px;
 }
 
 /* LOADING */
@@ -314,18 +209,17 @@ nav a:hover{
 .loading{
     display:none;
     text-align:center;
-    padding:20px;
-    color:#aaa;
+    margin-top:25px;
 }
 
 .spinner{
-    width:30px;
-    height:30px;
+    width:35px;
+    height:35px;
     border:3px solid #333;
-    border-top-color:#ff0033;
+    border-top-color:#ff3030;
     border-radius:50%;
     animation:spin 1s linear infinite;
-    margin:0 auto 10px;
+    margin:auto auto 10px;
 }
 
 @keyframes spin{
@@ -334,53 +228,327 @@ nav a:hover{
     }
 }
 
+/* RESULT */
+
+.result{
+    display:none;
+    margin-top:25px;
+    border-top:1px solid #292932;
+    padding-top:25px;
+}
+
+.video-preview{
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:20px;
+    align-items:center;
+}
+
+.thumbnail{
+    width:100%;
+    border-radius:12px;
+    border:1px solid #333;
+    background:#050507;
+    aspect-ratio:16/9;
+    object-fit:cover;
+}
+
+.video-info h3{
+    margin-bottom:8px;
+    font-size:21px;
+}
+
+.video-info p{
+    color:#92929a;
+    font-size:14px;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+    margin-top:22px;
+}
+
+.stat{
+    background:#18181f;
+    border:1px solid #292932;
+    padding:18px;
+    border-radius:12px;
+}
+
+.stat-label{
+    color:#85858e;
+    font-size:12px;
+    margin-bottom:5px;
+}
+
+.stat-value{
+    font-size:22px;
+    font-weight:800;
+}
+
+.stat-value.red{
+    color:#ff3b3b;
+}
+
+/* NOTICE */
+
+.notice{
+    margin-top:20px;
+    background:#171217;
+    border:1px solid #402126;
+    color:#aaa;
+    border-radius:10px;
+    padding:14px;
+    font-size:13px;
+}
+
+/* FEATURES */
+
+.section{
+    padding:75px 0;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.section-title h2{
+    font-size:34px;
+    margin-bottom:10px;
+}
+
+.section-title p{
+    color:#888;
+}
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.card{
+    background:#111117;
+    border:1px solid #292932;
+    padding:27px;
+    border-radius:15px;
+}
+
+.icon{
+    width:44px;
+    height:44px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#261014;
+    border-radius:10px;
+    color:#ff3b3b;
+    font-size:21px;
+    margin-bottom:18px;
+}
+
+.card h3{
+    margin-bottom:8px;
+}
+
+.card p{
+    color:#888;
+    font-size:14px;
+}
+
+/* SEO TOOL */
+
+.seo-box{
+    max-width:900px;
+    margin:auto;
+    background:#111117;
+    border:1px solid #292932;
+    padding:28px;
+    border-radius:16px;
+}
+
+.textarea{
+    width:100%;
+    min-height:110px;
+    resize:vertical;
+    background:#08080c;
+    border:1px solid #35353f;
+    border-radius:10px;
+    color:white;
+    padding:15px;
+    outline:none;
+    font-family:inherit;
+}
+
+.seo-fields{
+    display:grid;
+    gap:18px;
+}
+
+.seo-result{
+    display:none;
+    margin-top:20px;
+}
+
+.score{
+    text-align:center;
+    padding:25px;
+    background:#18181f;
+    border-radius:12px;
+    border:1px solid #292932;
+}
+
+.score-number{
+    font-size:45px;
+    font-weight:900;
+    color:#ff3b3b;
+}
+
+.progress{
+    width:100%;
+    height:10px;
+    background:#2b2b33;
+    border-radius:10px;
+    overflow:hidden;
+    margin-top:12px;
+}
+
+.progress-bar{
+    height:100%;
+    width:0%;
+    background:#ff3030;
+    transition:.5s;
+}
+
+/* CALCULATOR */
+
+.calculator{
+    max-width:850px;
+    margin:auto;
+}
+
+.calc-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.calc-card{
+    background:#111117;
+    border:1px solid #292932;
+    border-radius:15px;
+    padding:25px;
+}
+
+.calc-result{
+    margin-top:18px;
+    padding:20px;
+    background:#18181f;
+    border-radius:12px;
+    text-align:center;
+}
+
+.big-result{
+    font-size:35px;
+    font-weight:900;
+    color:#ff3434;
+}
+
+/* FAQ */
+
+.faq{
+    max-width:850px;
+    margin:auto;
+}
+
+details{
+    background:#111117;
+    border:1px solid #292932;
+    margin-bottom:12px;
+    border-radius:10px;
+    padding:17px 20px;
+}
+
+summary{
+    cursor:pointer;
+    font-weight:600;
+}
+
+details p{
+    color:#888;
+    margin-top:12px;
+    font-size:14px;
+}
+
 /* FOOTER */
 
 footer{
-    background:#10141f;
-    border-top:1px solid #252b3a;
-    padding:35px;
-    text-align:center;
+    border-top:1px solid #24242c;
+    padding:35px 0;
     color:#777;
+    text-align:center;
+    font-size:13px;
 }
 
-footer strong{
-    color:#ff0033;
+.footer-logo{
+    color:#fff;
+    font-weight:800;
+    font-size:18px;
+    margin-bottom:8px;
+}
+
+.footer-logo span{
+    color:#ff3030;
 }
 
 /* MOBILE */
 
-@media(max-width:700px){
+@media(max-width:800px){
 
-    header{
-        padding:15px 20px;
-    }
-
-    nav{
+    .nav-links{
         display:none;
     }
 
     .hero{
-        padding:55px 20px;
+        padding:60px 0 45px;
     }
 
     .hero h1{
-        font-size:34px;
+        font-size:35px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .tool-box{
+        padding:20px;
     }
 
     .input-row{
         flex-direction:column;
     }
 
-    .options{
+    .primary-btn{
+        height:50px;
+    }
+
+    .input-grid{
         grid-template-columns:1fr;
     }
 
-    .video-card{
+    .video-preview{
         grid-template-columns:1fr;
     }
 
     .stats{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .features{
         grid-template-columns:1fr;
     }
 
@@ -388,33 +556,51 @@ footer strong{
         grid-template-columns:1fr;
     }
 
-    .feature-grid{
+    .section{
+        padding:55px 0;
+    }
+
+    .section-title h2{
+        font-size:28px;
+    }
+}
+
+@media(max-width:450px){
+
+    .stats{
         grid-template-columns:1fr;
     }
 
-}
+    .hero h1{
+        font-size:30px;
+    }
 
+    .tool-box{
+        border-radius:12px;
+    }
+}
 </style>
 </head>
 
-
 <body>
 
+<!-- NAVBAR -->
 
-<!-- HEADER -->
+<header class="navbar">
+<div class="container nav-inner">
 
-<header>
+<div class="logo">
+YT<span>Tools</span>
+</div>
 
-    <div class="logo">
-        ▶ <span>YouTube</span> Tools
-    </div>
+<nav class="nav-links">
+<a href="#analyzer">Analyzer</a>
+<a href="#calculator">Calculator</a>
+<a href="#seo">SEO Tool</a>
+<a href="#faq">FAQ</a>
+</nav>
 
-    <nav>
-        <a href="#tool">Analyzer</a>
-        <a href="#features">Features</a>
-        <a href="#about">About</a>
-    </nav>
-
+</div>
 </header>
 
 
@@ -422,640 +608,1149 @@ footer strong{
 
 <section class="hero">
 
-    <h1>
-        YouTube Video
-        <span>Analyzer</span>
-    </h1>
+<div class="container">
 
-    <p>
-        Analyze your YouTube video, calculate estimated
-        watch time and check basic engagement metrics.
-    </p>
+<div class="badge">
+<span>●</span> Free YouTube Creator Tool
+</div>
 
-</section>
+<h1>
+YouTube Watch Time
+<span>Calculator & Analyzer</span>
+</h1>
 
+<p>
+Analyze your YouTube video, calculate estimated watch hours,
+and check your content's SEO potential with our free creator tools.
+</p>
 
-<!-- TOOL -->
-
-<section class="tool" id="tool">
-
-    <label class="label">
-        Enter YouTube Video URL
-    </label>
-
-    <div class="input-row">
-
-        <input
-            type="text"
-            id="youtubeURL"
-            placeholder="https://www.youtube.com/watch?v=..."
-        >
-
-        <button
-            class="analyze"
-            onclick="analyzeVideo()">
-            Analyze Video
-        </button>
-
-    </div>
-
-
-    <div class="options">
-
-        <div class="option">
-
-            <label>
-                Current Views
-            </label>
-
-            <input
-                type="number"
-                id="views"
-                value="1000"
-                min="0"
-            >
-
-        </div>
-
-
-        <div class="option">
-
-            <label>
-                Video Length (minutes)
-            </label>
-
-            <input
-                type="number"
-                id="duration"
-                value="5"
-                min="0"
-                step="0.1"
-            >
-
-        </div>
-
-
-        <div class="option">
-
-            <label>
-                Average Watch %
-            </label>
-
-            <input
-                type="number"
-                id="watchPercent"
-                value="50"
-                min="1"
-                max="100"
-            >
-
-        </div>
-
-    </div>
-
-
-    <div class="loading" id="loading">
-
-        <div class="spinner"></div>
-
-        Analyzing video...
-
-    </div>
+</div>
 
 </section>
 
 
-<!-- RESULTS -->
+<!-- ANALYZER -->
 
-<section id="results">
+<section class="tool-section" id="analyzer">
 
-    <div class="video-card">
+<div class="container">
 
-        <img
-            id="thumbnail"
-            class="thumbnail"
-            src=""
-            alt="YouTube Thumbnail"
-        >
+<div class="tool-box">
 
+<label class="input-label">
+YouTube Video URL
+</label>
 
-        <div class="video-info">
+<div class="input-row">
 
-            <h2 id="videoTitle">
-                YouTube Video
-            </h2>
+<input
+type="text"
+id="youtubeUrl"
+placeholder="https://www.youtube.com/watch?v=..."
+>
 
-            <div
-                class="video-url"
-                id="videoURL">
-            </div>
+<button class="primary-btn" onclick="analyzeVideo()">
+Analyze Video
+</button>
 
+</div>
 
-            <div class="stats">
-
-                <div class="stat">
-
-                    <div class="stat-title">
-                        Current Views
-                    </div>
-
-                    <div
-                        class="stat-value"
-                        id="resultViews">
-                        0
-                    </div>
-
-                </div>
+<div class="helper">
+Paste a public YouTube video URL.
+</div>
 
 
-                <div class="stat">
+<div class="input-grid">
 
-                    <div class="stat-title">
-                        Estimated Watch Time
-                    </div>
+<div class="field">
 
-                    <div
-                        class="stat-value"
-                        id="resultWatch">
-                        0
-                    </div>
+<label class="input-label">
+Current Views
+</label>
 
-                </div>
+<input
+type="number"
+id="views"
+placeholder="10000"
+min="0"
+>
 
+<small>Example: 10000</small>
 
-                <div class="stat">
-
-                    <div class="stat-title">
-                        Average Watch
-                    </div>
-
-                    <div
-                        class="stat-value"
-                        id="resultPercent">
-                        0%
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 
-    <!-- CALCULATOR -->
+<div class="field">
 
-    <div class="calculator">
+<label class="input-label">
+Video Length
+</label>
 
-        <h2>
-            ⏱ Watch Time Calculator
-        </h2>
+<input
+type="text"
+id="duration"
+placeholder="05:30"
+>
 
+<small>Format: MM:SS</small>
 
-        <div class="calc-grid">
-
-            <div class="calc-box">
-
-                <p>
-                    Video Duration
-                </p>
-
-                <strong id="calcDuration">
-                    0 min
-                </strong>
-
-            </div>
+</div>
 
 
-            <div class="calc-box">
+<div class="field">
 
-                <p>
-                    Estimated Views
-                </p>
+<label class="input-label">
+Average Watch %
+</label>
 
-                <strong id="calcViews">
-                    0
-                </strong>
+<input
+type="number"
+id="watchPercent"
+placeholder="50"
+min="1"
+max="100"
+>
 
-            </div>
+<small>Example: 50%</small>
+
+</div>
+
+</div>
 
 
-            <div class="calc-box">
+<div class="loading" id="loading">
 
-                <p>
-                    Estimated Watch Hours
-                </p>
+<div class="spinner"></div>
 
-                <strong id="calcHours">
-                    0
-                </strong>
+<p>Analyzing your video...</p>
 
-            </div>
+</div>
 
-        </div>
 
-    </div>
+<!-- RESULT -->
+
+<div class="result" id="result">
+
+<div class="video-preview">
+
+<img
+id="thumbnail"
+class="thumbnail"
+alt="YouTube Thumbnail"
+>
+
+<div class="video-info">
+
+<h3 id="videoIdText">
+YouTube Video
+</h3>
+
+<p>
+Video ID: <strong id="videoId"></strong>
+</p>
+
+<p style="margin-top:8px">
+Your estimated watch time is calculated from
+views × video duration × average watch percentage.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="stats">
+
+<div class="stat">
+
+<div class="stat-label">
+Current Views
+</div>
+
+<div class="stat-value" id="resultViews">
+0
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-label">
+Average Watch
+</div>
+
+<div class="stat-value" id="resultWatch">
+0%
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-label">
+Watch Minutes
+</div>
+
+<div class="stat-value" id="resultMinutes">
+0
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-label">
+Estimated Hours
+</div>
+
+<div class="stat-value red" id="resultHours">
+0
+</div>
+
+</div>
+
+</div>
+
+
+<div class="notice">
+
+<strong>Important:</strong>
+This tool calculates estimated watch time from the information
+you enter. It does not create artificial YouTube views,
+watch sessions, subscribers, or engagement.
+
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
 <!-- FEATURES -->
 
-<section class="features" id="features">
+<section class="section">
 
-    <h2>
-        🛠️ Free YouTube Tools
-    </h2>
+<div class="container">
 
+<div class="section-title">
 
-    <div class="feature-grid">
+<h2>What Can You Do?</h2>
 
+<p>
+Simple tools for YouTube creators
+</p>
 
-        <div class="feature">
-
-            <div class="feature-icon">
-                📊
-            </div>
-
-            <h3>
-                Video Analyzer
-            </h3>
-
-            <p>
-                Enter your video URL and calculate
-                basic video statistics.
-            </p>
-
-        </div>
+</div>
 
 
-        <div class="feature">
+<div class="features">
 
-            <div class="feature-icon">
-                ⏱️
-            </div>
+<div class="card">
 
-            <h3>
-                Watch Time Calculator
-            </h3>
+<div class="icon">📊</div>
 
-            <p>
-                Estimate total watch hours from
-                views, duration and average retention.
-            </p>
+<h3>Video Analyzer</h3>
 
-        </div>
+<p>
+Enter your YouTube URL and view the video's thumbnail,
+video ID and estimated performance information.
+</p>
+
+</div>
 
 
-        <div class="feature">
+<div class="card">
 
-            <div class="feature-icon">
-                🔍
-            </div>
+<div class="icon">⏱️</div>
 
-            <h3>
-                YouTube SEO
-            </h3>
+<h3>Watch Time Calculator</h3>
 
-            <p>
-                Use your video information to improve
-                titles, descriptions and keywords.
-            </p>
+<p>
+Calculate estimated watch minutes and watch hours
+using your views, duration and average retention.
+</p>
 
-        </div>
+</div>
 
 
-    </div>
+<div class="card">
+
+<div class="icon">🚀</div>
+
+<h3>SEO Analyzer</h3>
+
+<p>
+Check your title, description and keywords for
+basic YouTube SEO optimization.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">📱</div>
+
+<h3>Mobile Friendly</h3>
+
+<p>
+The website is responsive and works on phones,
+tablets, laptops and desktop computers.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">⚡</div>
+
+<h3>Fast & Lightweight</h3>
+
+<p>
+Everything runs directly in your browser without
+requiring a database for the calculator tools.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🔒</div>
+
+<h3>Privacy Friendly</h3>
+
+<p>
+The calculator uses the information you enter
+directly in your browser.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- WATCH TIME CALCULATOR -->
+
+<section class="section" id="calculator">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>YouTube Watch Time Calculator</h2>
+
+<p>
+Estimate total watch hours from your video metrics.
+</p>
+
+</div>
+
+
+<div class="calculator">
+
+<div class="calc-grid">
+
+<div class="calc-card">
+
+<label class="input-label">
+Number of Views
+</label>
+
+<input
+type="number"
+id="calcViews"
+placeholder="100000"
+min="0"
+>
+
+</div>
+
+
+<div class="calc-card">
+
+<label class="input-label">
+Video Duration
+</label>
+
+<input
+type="text"
+id="calcDuration"
+placeholder="10:00"
+>
+
+</div>
+
+
+<div class="calc-card">
+
+<label class="input-label">
+Average Watch Percentage
+</label>
+
+<input
+type="number"
+id="calcRetention"
+placeholder="50"
+min="1"
+max="100"
+>
+
+</div>
+
+
+<div class="calc-card">
+
+<label class="input-label">
+Calculate
+</label>
+
+<button
+class="primary-btn"
+style="width:100%;height:50px"
+onclick="calculateWatchTime()"
+>
+Calculate Watch Time
+</button>
+
+</div>
+
+</div>
+
+
+<div class="calc-result">
+
+<div>
+Estimated Watch Time
+</div>
+
+<div
+class="big-result"
+id="calcHours"
+>
+0 Hours
+</div>
+
+<div
+style="color:#777;margin-top:5px"
+id="calcMinutes"
+>
+0 minutes
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SEO -->
+
+<section class="section" id="seo">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>YouTube SEO Analyzer</h2>
+
+<p>
+Enter your video title, description and keywords.
+</p>
+
+</div>
+
+
+<div class="seo-box">
+
+<div class="seo-fields">
+
+<div>
+
+<label class="input-label">
+Video Title
+</label>
+
+<input
+type="text"
+id="seoTitle"
+placeholder="Enter your YouTube video title..."
+>
+
+</div>
+
+
+<div>
+
+<label class="input-label">
+Description
+</label>
+
+<textarea
+class="textarea"
+id="seoDescription"
+placeholder="Enter your video description..."
+></textarea>
+
+</div>
+
+
+<div>
+
+<label class="input-label">
+Keywords / Tags
+</label>
+
+<input
+type="text"
+id="seoKeywords"
+placeholder="youtube, shorts, viral, tutorial..."
+>
+
+</div>
+
+
+<button
+class="primary-btn"
+style="height:50px"
+onclick="analyzeSEO()"
+>
+Analyze SEO
+</button>
+
+</div>
+
+
+<div
+class="seo-result"
+id="seoResult"
+>
+
+<div class="score">
+
+<div>
+SEO Score
+</div>
+
+<div
+class="score-number"
+id="seoScore"
+>
+0/100
+</div>
+
+<div class="progress">
+
+<div
+class="progress-bar"
+id="seoBar"
+></div>
+
+</div>
+
+<p
+id="seoMessage"
+style="color:#888;margin-top:12px"
+>
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FAQ -->
+
+<section class="section" id="faq">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>Frequently Asked Questions</h2>
+
+<p>
+Everything you need to know about this tool.
+</p>
+
+</div>
+
+
+<div class="faq">
+
+<details>
+
+<summary>
+Is this YouTube tool free?
+</summary>
+
+<p>
+Yes. The calculator and analyzer features on this page
+are free to use.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+Does this website generate real YouTube views?
+</summary>
+
+<p>
+No. This website does not generate artificial views,
+watch sessions, subscribers or engagement. It provides
+calculations and analysis tools for creators.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+How is watch time calculated?
+</summary>
+
+<p>
+Estimated watch time is calculated using the number of
+views, video duration and average watch percentage.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+Can I host this website on GitHub Pages?
+</summary>
+
+<p>
+Yes. This is a single HTML file and can be hosted on
+GitHub Pages without a database.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+Does the analyzer automatically fetch YouTube views?
+</summary>
+
+<p>
+The basic version uses the metrics entered by the user.
+For automatic public YouTube statistics, a legitimate
+YouTube Data API or backend integration would be required.
+</p>
+
+</details>
+
+</div>
+
+</div>
 
 </section>
 
 
 <!-- FOOTER -->
 
-<footer id="about">
+<footer>
 
-    <p>
-        © 2026 <strong>YouTube Tools</strong>
-    </p>
+<div class="container">
 
-    <br>
+<div class="footer-logo">
+YT<span>Tools</span>
+</div>
 
-    <p>
-        This website provides calculations and analysis tools.
-        It does not generate artificial YouTube views or watch time.
-    </p>
+<p>
+Free YouTube creator tools for video analysis,
+watch-time calculations and SEO research.
+</p>
+
+<p style="margin-top:12px">
+© 2026 YTTools. All rights reserved.
+</p>
+
+</div>
 
 </footer>
 
 
 <script>
 
-
-/* ==========================================
+/* =========================
    GET YOUTUBE VIDEO ID
-========================================== */
+========================= */
 
 function getVideoID(url){
 
     try{
 
-        const parsed =
-            new URL(url);
+        const parsed = new URL(url);
 
-        /* youtube.com/watch?v= */
+        if(parsed.hostname.includes("youtu.be")){
+            return parsed.pathname.substring(1).split("/")[0];
+        }
 
-        if(
-            parsed.hostname.includes("youtube.com") &&
-            parsed.searchParams.get("v")
-        ){
+        if(parsed.hostname.includes("youtube.com")){
 
-            return parsed.searchParams.get("v");
+            const watchID = parsed.searchParams.get("v");
+
+            if(watchID){
+                return watchID;
+            }
+
+            const parts = parsed.pathname.split("/");
+
+            const shortsIndex = parts.indexOf("shorts");
+
+            if(shortsIndex !== -1 && parts[shortsIndex + 1]){
+                return parts[shortsIndex + 1];
+            }
+
+            const embedIndex = parts.indexOf("embed");
+
+            if(embedIndex !== -1 && parts[embedIndex + 1]){
+                return parts[embedIndex + 1];
+            }
 
         }
 
-
-        /* youtu.be */
-
-        if(
-            parsed.hostname.includes("youtu.be")
-        ){
-
-            return parsed.pathname
-                .replace("/","");
-
-        }
-
-
-        /* youtube.com/shorts/ */
-
-        if(
-            parsed.pathname.startsWith("/shorts/")
-        ){
-
-            return parsed.pathname
-                .split("/")[2];
-
-        }
-
-    }
-
-    catch(error){
+    }catch(error){
 
         return null;
 
     }
 
     return null;
+}
+
+
+/* =========================
+   FORMAT NUMBERS
+========================= */
+
+function formatNumber(number){
+
+    return Number(number).toLocaleString("en-IN");
 
 }
 
 
-/* ==========================================
-   ANALYZE
-========================================== */
+/* =========================
+   DURATION TO MINUTES
+========================= */
+
+function durationToMinutes(duration){
+
+    const parts = duration.trim().split(":");
+
+    if(parts.length === 2){
+
+        const minutes = parseInt(parts[0]) || 0;
+        const seconds = parseInt(parts[1]) || 0;
+
+        return minutes + (seconds / 60);
+
+    }
+
+    if(parts.length === 3){
+
+        const hours = parseInt(parts[0]) || 0;
+        const minutes = parseInt(parts[1]) || 0;
+        const seconds = parseInt(parts[2]) || 0;
+
+        return (hours * 60) + minutes + (seconds / 60);
+
+    }
+
+    return 0;
+}
+
+
+/* =========================
+   ANALYZE VIDEO
+========================= */
 
 function analyzeVideo(){
 
     const url =
-        document
-        .getElementById("youtubeURL")
-        .value
-        .trim();
+        document.getElementById("youtubeUrl").value.trim();
+
+    const views =
+        parseInt(document.getElementById("views").value) || 0;
+
+    const duration =
+        document.getElementById("duration").value.trim();
+
+    const watchPercent =
+        parseFloat(document.getElementById("watchPercent").value) || 0;
 
 
-    const videoID =
-        getVideoID(url);
+    const videoID = getVideoID(url);
 
 
     if(!videoID){
 
-        alert(
-            "Please enter a valid YouTube video URL."
-        );
+        alert("Please enter a valid YouTube video URL.");
 
         return;
 
     }
 
 
-    const views =
-        Number(
-            document
-            .getElementById("views")
-            .value
-        );
+    if(views <= 0){
 
-
-    const duration =
-        Number(
-            document
-            .getElementById("duration")
-            .value
-        );
-
-
-    const watchPercent =
-        Number(
-            document
-            .getElementById("watchPercent")
-            .value
-        );
-
-
-    if(
-        views < 0 ||
-        duration <= 0 ||
-        watchPercent <= 0
-    ){
-
-        alert(
-            "Please enter valid values."
-        );
+        alert("Please enter your current video views.");
 
         return;
 
     }
 
 
-    /* Loading */
+    if(!duration){
 
-    document
-        .getElementById("loading")
-        .style.display = "block";
+        alert("Please enter the video duration.");
+
+        return;
+
+    }
 
 
-    document
-        .getElementById("results")
-        .style.display = "none";
+    if(watchPercent <= 0 || watchPercent > 100){
+
+        alert("Average watch percentage must be between 1 and 100.");
+
+        return;
+
+    }
+
+
+    document.getElementById("loading").style.display = "block";
+
+    document.getElementById("result").style.display = "none";
 
 
     setTimeout(function(){
 
-        /* Thumbnail */
-
-        document
-            .getElementById("thumbnail")
-            .src =
-            "https://img.youtube.com/vi/"
-            + videoID
-            + "/maxresdefault.jpg";
-
-
-        /* Title */
-
-        document
-            .getElementById("videoTitle")
-            .innerText =
-            "YouTube Video • "
-            + videoID;
-
-
-        /* URL */
-
-        document
-            .getElementById("videoURL")
-            .innerText =
-            url;
-
-
-        /* Watch time */
+        const videoMinutes =
+            durationToMinutes(duration);
 
         const watchMinutes =
-            duration *
+            views *
+            videoMinutes *
             (watchPercent / 100);
 
-
-        const totalMinutes =
-            views *
-            watchMinutes;
+        const watchHours =
+            watchMinutes / 60;
 
 
-        const totalHours =
-            totalMinutes / 60;
+        const thumbnail =
+            document.getElementById("thumbnail");
 
 
-        /* Results */
+        thumbnail.src =
+            "https://img.youtube.com/vi/" +
+            videoID +
+            "/hqdefault.jpg";
 
-        document
-            .getElementById("resultViews")
-            .innerText =
+
+        document.getElementById("videoId").textContent =
+            videoID;
+
+        document.getElementById("videoIdText").textContent =
+            "YouTube Video Analyzer";
+
+        document.getElementById("resultViews").textContent =
             formatNumber(views);
 
-
-        document
-            .getElementById("resultWatch")
-            .innerText =
-            formatHours(totalHours);
-
-
-        document
-            .getElementById("resultPercent")
-            .innerText =
+        document.getElementById("resultWatch").textContent =
             watchPercent + "%";
 
+        document.getElementById("resultMinutes").textContent =
+            formatNumber(Math.round(watchMinutes));
 
-        document
-            .getElementById("calcDuration")
-            .innerText =
-            duration + " min";
-
-
-        document
-            .getElementById("calcViews")
-            .innerText =
-            formatNumber(views);
+        document.getElementById("resultHours").textContent =
+            watchHours.toFixed(2);
 
 
-        document
-            .getElementById("calcHours")
-            .innerText =
-            formatHours(totalHours);
+        document.getElementById("loading").style.display =
+            "none";
+
+        document.getElementById("result").style.display =
+            "block";
 
 
-        /* Show */
-
-        document
-            .getElementById("loading")
-            .style.display = "none";
-
-
-        document
-            .getElementById("results")
-            .style.display = "block";
+        document.getElementById("result").scrollIntoView({
+            behavior:"smooth",
+            block:"center"
+        });
 
 
-        document
-            .getElementById("results")
-            .scrollIntoView({
-                behavior:"smooth"
-            });
-
-
-    },800);
+    },700);
 
 }
 
 
-/* ==========================================
-   NUMBER FORMAT
-========================================== */
+/* =========================
+   WATCH TIME CALCULATOR
+========================= */
 
-function formatNumber(number){
+function calculateWatchTime(){
 
-    return new Intl.NumberFormat(
-        "en-IN"
-    ).format(number);
+    const views =
+        parseInt(document.getElementById("calcViews").value) || 0;
 
-}
+    const duration =
+        document.getElementById("calcDuration").value.trim();
+
+    const retention =
+        parseFloat(document.getElementById("calcRetention").value) || 0;
 
 
-/* ==========================================
-   HOURS FORMAT
-========================================== */
+    if(views <= 0){
 
-function formatHours(hours){
+        alert("Enter a valid number of views.");
 
-    if(hours < 1){
-
-        return hours.toFixed(2)
-            + " hours";
+        return;
 
     }
 
 
-    return hours.toLocaleString(
-        "en-IN",
-        {
-            maximumFractionDigits:2
-        }
-    )
-    + " hours";
+    const minutes =
+        durationToMinutes(duration);
+
+
+    if(minutes <= 0){
+
+        alert("Enter duration like 05:30.");
+
+        return;
+
+    }
+
+
+    if(retention <= 0 || retention > 100){
+
+        alert("Watch percentage must be between 1 and 100.");
+
+        return;
+
+    }
+
+
+    const totalMinutes =
+        views *
+        minutes *
+        (retention / 100);
+
+
+    const totalHours =
+        totalMinutes / 60;
+
+
+    document.getElementById("calcHours").textContent =
+        totalHours.toFixed(2) + " Hours";
+
+
+    document.getElementById("calcMinutes").textContent =
+        formatNumber(Math.round(totalMinutes)) +
+        " minutes";
 
 }
 
 
-/* ==========================================
+/* =========================
+   SEO ANALYZER
+========================= */
+
+function analyzeSEO(){
+
+    const title =
+        document.getElementById("seoTitle").value.trim();
+
+    const description =
+        document.getElementById("seoDescription").value.trim();
+
+    const keywords =
+        document.getElementById("seoKeywords").value.trim();
+
+
+    let score = 0;
+
+
+    /* TITLE */
+
+    if(title.length >= 20){
+
+        score += 20;
+
+    }
+
+    if(title.length >= 40){
+
+        score += 10;
+
+    }
+
+    if(title.length <= 70 && title.length > 0){
+
+        score += 10;
+
+    }
+
+
+    /* DESCRIPTION */
+
+    if(description.length >= 100){
+
+        score += 15;
+
+    }
+
+    if(description.length >= 250){
+
+        score += 10;
+
+    }
+
+
+    /* KEYWORDS */
+
+    if(keywords.length > 0){
+
+        score += 15;
+
+    }
+
+    const keywordCount =
+        keywords
+        .split(",")
+        .filter(x => x.trim() !== "")
+        .length;
+
+
+    if(keywordCount >= 5){
+
+        score += 10;
+
+    }
+
+
+    /* TITLE KEYWORD */
+
+    if(title && keywords){
+
+        const firstKeyword =
+            keywords
+            .split(",")[0]
+            .trim()
+            .toLowerCase();
+
+
+        if(
+            firstKeyword &&
+            title.toLowerCase().includes(firstKeyword)
+        ){
+
+            score += 10;
+
+        }
+
+    }
+
+
+    score =
+        Math.min(score,100);
+
+
+    document.getElementById("seoScore").textContent =
+        score + "/100";
+
+
+    document.getElementById("seoBar").style.width =
+        score + "%";
+
+
+    let message;
+
+
+    if(score >= 80){
+
+        message =
+            "Your basic SEO setup looks strong. Keep improving your thumbnail, retention and content quality.";
+
+    }else if(score >= 50){
+
+        message =
+            "Your SEO setup is decent. Improve your title, description and keyword coverage.";
+
+    }else{
+
+        message =
+            "There is room for improvement. Add a descriptive title, detailed description and relevant keywords.";
+
+    }
+
+
+    document.getElementById("seoMessage").textContent =
+        message;
+
+
+    document.getElementById("seoResult").style.display =
+        "block";
+
+
+    document.getElementById("seoResult").scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+    });
+
+}
+
+
+/* =========================
    ENTER KEY
-========================================== */
+========================= */
 
 document
-.getElementById("youtubeURL")
-.addEventListener(
-    "keydown",
-    function(event){
+.getElementById("youtubeUrl")
+.addEventListener("keydown",function(event){
 
-        if(event.key === "Enter"){
+    if(event.key === "Enter"){
 
-            analyzeVideo();
-
-        }
+        analyzeVideo();
 
     }
-);
+
+});
 
 </script>
-
 
 </body>
 </html>
